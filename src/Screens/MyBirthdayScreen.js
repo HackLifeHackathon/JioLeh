@@ -1,31 +1,23 @@
 import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
-
-    const dayArr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    const buttonArr = [];
-    for ( let i = 0; i < dayArr.length; i++) {
-        buttonArr.push(
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>{dayArr[i]}</Text>
-            </TouchableOpacity>
-        );
-    }
+export default function MyBirthdayScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
-                <Text style={styles.header}>I usually play on</Text>
-                <View style={styles.buttonContainer}>
-                {buttonArr}
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('HomeScreen')}>
+                <Text style={styles.header}>My Birthday is...</Text>
+                <TextInput
+                style={styles.input}
+                placeholder=" DD/MM/YY"
+                >
+                </TextInput>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('PlayingDays')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
-                </View>
             </View>
         </View>
     )
@@ -42,12 +34,54 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         alignItems: 'center',
-        //justifyContent: 'center',
+        justifyContent: 'center',
+      
+    },
+    input: {
+        top: 120,
+        height: 45,
+        width: 300,
+        marginTop: 12,
+        marginBottom: 20,
+        backgroundColor: 'white',
+        borderBottomColor: '#424242',
+        borderBottomWidth: 2,
+        fontSize: 18,
+    },
+    content: {
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     header: {
         fontFamily: 'Monaco',
         fontSize: 25,
         top: 100,
+    },
+    headerTwo: {
+        fontFamily: 'Monaco',
+        fontSize: 20,
+        top: 105,
+        margin: 20,
+    },
+    ruleContainer: {
+        top: 110,
+        margin: 15,
+    },
+    check: {
+        padding: 10,
+    },
+    ruleHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10,
+    },
+    ruleTitle: {
+        fontFamily: 'Monaco',
+        fontSize: 20,
+    },
+    ruleDetail: {
+        fontFamily: 'Monaco',
+        fontSize: 18,
     },
     buttonContainer: {
         flexDirection: 'column',
@@ -73,10 +107,11 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
-        paddingHorizontal: 40,
+        width: 320,
         borderRadius: 25,
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
+        marginTop: 600,
     },
   });

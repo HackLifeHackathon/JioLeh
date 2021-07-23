@@ -5,7 +5,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 export default function SelectGameScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>

@@ -5,7 +5,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 export default function SelectGameScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
@@ -17,7 +17,7 @@ export default function SelectGameScreen({ navigation }) {
                 </TextInput>
                 <Text style={styles.headerTwo}>This is the name that others will see.
                 Feel free to use a nickname or your first name!</Text>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('SelectGender')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
             </View>

@@ -7,7 +7,9 @@ import SelectGenderScreen from './src/Screens/SelectGenderScreen';
 import CreateAccountScreen from './src/Screens/CreateAccountScreen';
 import WelcomeScreen from './src/Screens/WelcomeScreen';
 import UsernameScreen from './src/Screens/UsernameScreen';
+import MyBirthdayScreen from './src/Screens/MyBirthdayScreen';
 import PlayingDaysScreen from './src/Screens/PlayingDaysScreen';
+import SideMenu from './src/components/SideMenu'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -26,6 +28,8 @@ export default function App() {
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="Username" component={UsernameScreen} />
         <Stack.Screen name="PlayingDays" component={PlayingDaysScreen} />
+        <Stack.Screen name="MyBirthday" component={MyBirthdayScreen} />
+        <Stack.Screen name="HomeScreen" component={SideMenu} />
       </Stack.Navigator>
     </NavigationContainer>
   );

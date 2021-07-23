@@ -8,7 +8,7 @@ export default function SelectGameScreen({ navigation }) {
     
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
             <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={{ alignItems: 'center'}}>
@@ -29,7 +29,7 @@ export default function SelectGameScreen({ navigation }) {
             </View>
             <TouchableOpacity
             style={styles.continue}
-            onPress={() => navigation.navigate('SelectGender')}>
+            onPress={() => navigation.navigate('MyBirthday')}>
                   <Text style={styles.invertedText}>Continue</Text>
               </TouchableOpacity>
               </View>
