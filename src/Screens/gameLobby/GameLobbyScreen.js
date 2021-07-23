@@ -8,13 +8,17 @@ export default function GameLobbyScreen({ navigation }) {
                 'Maplesea', 'Among Us', 'League of Legends'];
     buttonArr = [];
 
-    for (var game of gameArr) {
+
+    for (let i = 0; i < gameArr.length; i++) {
         buttonArr.push (
-            <TouchableOpacity
-                name={game} 
+            <TouchableOpacity 
+             
                 style={styles.button}
-                onPress={()=> navigation.navigate('GameDetail')}>
-                    <Text style={styles.buttonText}>{game}</Text>
+                onPress={()=> 
+                navigation.navigate('GameDetail', {
+                    selectedGame: gameArr[i]
+                })}>
+                    <Text style={styles.buttonText}>{gameArr[i]}</Text>
         </TouchableOpacity>
         ) 
         

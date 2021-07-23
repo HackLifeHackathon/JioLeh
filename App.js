@@ -23,7 +23,7 @@ export default function App() {
       screenOptions={{
         headerShown: false
       }}>
-        <Stack.Screen name="FirstScreen" component={LoginScreen} />
+        <Stack.Screen name="FirstScreen" component={GameLobbyScreen} />
         <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
         <Stack.Screen name="SelectGame" component={SelectGameScreen} />
         <Stack.Screen name="SelectGender" component={SelectGenderScreen} />
@@ -32,8 +32,8 @@ export default function App() {
         <Stack.Screen name="PlayingDays" component={PlayingDaysScreen} />
         <Stack.Screen name="MyBirthday" component={MyBirthdayScreen} />
         <Stack.Screen name="HomeScreen" component={SideMenu} />
-        <Stack.Screen name="GameLobbyScreen" component={GameLobbyScreen} />
-        <Stack.Screen name="GameDetailScreen" component={GameDetailScreen} />
+        <Stack.Screen name="GameLobby" component={GameLobbyScreen} />
+        <Stack.Screen name="GameDetail" component={GameDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

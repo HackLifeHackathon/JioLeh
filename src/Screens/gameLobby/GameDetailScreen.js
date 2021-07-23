@@ -2,32 +2,17 @@ import React, {useState} from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function GameDetailScreen({ navigation }) {
+export default function GameDetailScreen({ navigation, route }) {
 
-    gameArr = ['Valorant', 'Csgo', 'Dota 2', 'Minecraft',
-                'Maplesea', 'Among Us', 'League of Legends'];
-    buttonArr = [];
-
-    for (var game of gameArr) {
-        buttonArr.push (
-            <TouchableOpacity 
-                style={styles.button}
-                onPress={()=> navigation.navigate('GameDetail')}>
-                    <Text style={styles.buttonText}>{game}</Text>
-        </TouchableOpacity>
-        ) 
-        
-    }
+    const { selectedGame } = route.params;
     return (
         <View style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
-                <Text style={styles.header}>Game Lobby</Text>
-                <View style={styles.buttonContainer}>
-                {buttonArr}
-                </View>
+                <Text style={styles.header}>{selectedGame}</Text>
+                
             </View>
         </View>
     )
