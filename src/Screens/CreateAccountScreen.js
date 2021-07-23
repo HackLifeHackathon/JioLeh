@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
-        marginTop: 250,
+        marginTop: 150,
     },
     invertedText: {
         alignSelf: 'center',
