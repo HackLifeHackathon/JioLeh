@@ -5,6 +5,7 @@ import LoginScreen from './src/Screens/LoginScreen';
 import SelectGameScreen from './src/Screens/SelectGameScreen';
 import CreateAccountScreen from './src/Screens/CreateAccountScreen';
 import WelcomeScreen from './src/Screens/WelcomeScreen';
+import UsernameScreen from './src/Screens/UsernameScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
         <Stack.Screen name="SelectGame" component={SelectGameScreen} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="Username" component={UsernameScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

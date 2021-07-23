@@ -1,41 +1,23 @@
 import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function WelcomeScreen({ navigation }) {
+export default function SelectGameScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
-                <Text style={styles.header}>Welcome to JioLeh</Text>
-                <Text style={styles.headerTwo}>Please follow these house rules.</Text>
-                <View style={styles.ruleContainer}>
-                    <View style={styles.ruleHeader}>
-                        <FontAwesome5 name="check" size={25} style={styles.check}/>
-                        <Text style={styles.ruleTitle}>Be friendly</Text>
-                    </View>
-                    <Text style={styles.ruleDetail}>This is a place where you find like-minded people to play games with, not enemies.</Text>
-                    <View style={styles.ruleHeader}>
-                        <FontAwesome5 name="check" size={25} style={styles.check}/>
-                        <Text style={styles.ruleTitle}>Stay Safe</Text>
-                    </View>
-                    <Text style={styles.ruleDetail}>Don't give out personal information too easily. Beware of scammers and bullies.</Text>
-
-                    <View style={styles.ruleHeader}>
-                        <FontAwesome5 name="check" size={25} style={styles.check}/>
-                        <Text style={styles.ruleTitle}>Be Honest</Text>
-                    </View>
-                    <Text style={styles.ruleDetail}>Make sure the information you have provided is as accurate as possible to make matching more precise</Text>
-
-                    <View style={styles.ruleHeader}>
-                        <FontAwesome5 name="check" size={25} style={styles.check}/>
-                        <Text style={styles.ruleTitle}>Get rid of toxicity</Text>
-                    </View>
-                    <Text style={styles.ruleDetail}>Always report bad bahaviours.</Text>
-                </View>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Username')}>
+                <Text style={styles.header}>My Username</Text>
+                <TextInput
+                style={styles.input}
+                placeholder=" Enter Username"
+                >
+                </TextInput>
+                <Text style={styles.headerTwo}>This is the name that others will see.
+                Feel free to use a nickname or your first name!</Text>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
             </View>
@@ -45,13 +27,28 @@ export default function WelcomeScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      display: 'flex',
       backgroundColor: '#a8c961',
-      
     },
     chevron: {
         top: 70,
         paddingLeft: 30,
+    },
+    content: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      
+    },
+    input: {
+        top: 120,
+        height: 45,
+        width: 300,
+        marginTop: 12,
+        marginBottom: 20,
+        backgroundColor: 'white',
+        borderBottomColor: '#424242',
+        borderBottomWidth: 2,
+        fontSize: 18,
     },
     content: {
         alignItems: 'center',
@@ -66,7 +63,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Monaco',
         fontSize: 20,
         top: 105,
-        marginBottom: 10,
+        margin: 20,
     },
     ruleContainer: {
         top: 110,
