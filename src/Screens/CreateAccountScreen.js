@@ -81,7 +81,8 @@ name: {
 },
 buttonInverted: {
   paddingVertical: 15,
-  paddingHorizontal: 120,
+  //paddingHorizontal: 120,
+  width: 320,
   borderRadius: 25,
   backgroundColor: '#a8c961',
   borderColor: 'black',

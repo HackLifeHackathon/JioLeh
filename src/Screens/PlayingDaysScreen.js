@@ -56,7 +56,7 @@ export default function SelectGameScreen({ navigation }) {
                 onPress={() => setSelectSunday(!selectSunday)}>
                     <Text style={selectSunday ? styles.buttonText : styles.invertedText}>Sunday</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('HomeScreen')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
                 </View>
@@ -107,11 +107,11 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
-        paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
         marginBottom: 15,
+        width: 320,
     },
   });

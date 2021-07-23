@@ -45,19 +45,21 @@ const styles = StyleSheet.create({
     },
     button: {
         paddingVertical: 15,
-        paddingHorizontal: 40,
+        //paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: 'black',
         borderWidth: 2,
         marginBottom: 15,
+        width: 320,
     },
     buttonInverted: {
         paddingVertical: 15,
-        paddingHorizontal: 40,
+        //paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
         marginBottom: 15,
+        width: 320,
     },
   });

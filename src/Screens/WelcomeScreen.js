@@ -112,11 +112,12 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
-        paddingHorizontal: 40,
+        //paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
         top: 200,
+        width: 320,
     },
   });
