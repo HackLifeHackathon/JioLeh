@@ -1,6 +1,6 @@
 import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function SelectGameScreen({ navigation }) {
     return (
@@ -9,33 +9,17 @@ export default function SelectGameScreen({ navigation }) {
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
-                <Text style={styles.header}>Games I Play</Text>
-                <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Valorant</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Csgo</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Dota 2</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Minecraft</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Maplesea</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Among Us</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>League of Legends</Text>
-                </TouchableOpacity>
+                <Text style={styles.header}>My Username</Text>
+                <TextInput
+                style={styles.input}
+                placeholder=" Enter Username"
+                >
+                </TextInput>
+                <Text style={styles.headerTwo}>This is the name that others will see.
+                Feel free to use a nickname or your first name!</Text>
                 <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
-                </View>
             </View>
         </View>
     )
@@ -52,12 +36,54 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         alignItems: 'center',
-        //justifyContent: 'center',
+        justifyContent: 'center',
+      
+    },
+    input: {
+        top: 120,
+        height: 45,
+        width: 300,
+        marginTop: 12,
+        marginBottom: 20,
+        backgroundColor: 'white',
+        borderBottomColor: '#424242',
+        borderBottomWidth: 2,
+        fontSize: 18,
+    },
+    content: {
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     header: {
         fontFamily: 'Monaco',
         fontSize: 25,
         top: 100,
+    },
+    headerTwo: {
+        fontFamily: 'Monaco',
+        fontSize: 20,
+        top: 105,
+        margin: 20,
+    },
+    ruleContainer: {
+        top: 110,
+        margin: 15,
+    },
+    check: {
+        padding: 10,
+    },
+    ruleHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10,
+    },
+    ruleTitle: {
+        fontFamily: 'Monaco',
+        fontSize: 20,
+    },
+    ruleDetail: {
+        fontFamily: 'Monaco',
+        fontSize: 18,
     },
     buttonContainer: {
         flexDirection: 'column',
@@ -88,5 +114,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
+        top: 200,
     },
   });

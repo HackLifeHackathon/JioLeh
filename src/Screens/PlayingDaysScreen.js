@@ -3,35 +3,25 @@ import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function SelectGameScreen({ navigation }) {
+
+    dayArr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    buttonArr = [];
+    for ( let i = 0; i < dayArr.length; i++) {
+        buttonArr.push(
+            <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>{dayArr[i]}</Text>
+            </TouchableOpacity>
+        );
+    }
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
-                <Text style={styles.header}>Games I Play</Text>
+                <Text style={styles.header}>I usually play on</Text>
                 <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Valorant</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Csgo</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Dota 2</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Minecraft</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Maplesea</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Among Us</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>League of Legends</Text>
-                </TouchableOpacity>
+                {buttonArr}
                 <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
