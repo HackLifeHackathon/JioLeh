@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
+export default function PlayingDayScreen({ navigation }) {
 
     const [selectMonday, setSelectMonday]= useState(false)
     const [selectTuesday, setSelectTuesday] = useState(false)
