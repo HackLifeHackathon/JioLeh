@@ -32,7 +32,7 @@ export default function CreateAccountScreen({ navigation }) {
                 >
               </TextInput>
               </View>
-              <TouchableOpacity style={styles.buttonInverted}>
+              <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('SelectGame')}>
                   <Text style={styles.invertedText}>Continue</Text>
               </TouchableOpacity>
               </View>
