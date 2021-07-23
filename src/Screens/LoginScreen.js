@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <Text style={styles.header}>JioLeh</Text>
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateAccount')}>
                 <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonInverted}>
