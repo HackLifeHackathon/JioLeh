@@ -23,8 +23,10 @@ const config = {
 	scopes: ["profile", "email"],
 };
 
+var isRegistered = false;
+
 export default class CreateAccountScreen extends Component {
-    
+
     isUserEqual = (googleUser, firebaseUser) => {
         if (firebaseUser) {
             var providerData = firebaseUser.providerData;
@@ -80,7 +82,8 @@ export default class CreateAccountScreen extends Component {
               console.log(error);
             });
         } else {
-          console.log("User already signed-in Firebase.");
+            isRegistered = true;
+            console.log("User already registered  -Firebase.");
         }
       })
       .bind(this);
@@ -105,8 +108,13 @@ export default class CreateAccountScreen extends Component {
    confirmLogin = async(navigation) => {
       const result = await this.signInWithGoogleAsync()
       console.log(result.user.id)
-      if (result.type == "success") {
-          this.props.navigation.navigate('Welcome_0', {userid: result.user.id});
+       if (result.type == "success") {
+           // if registered before, directly skip registration
+           if (isRegistered) {
+               this.props.navigation.navigate('HomeScreen');   // might need userid to identify the person
+           } else {
+               this.props.navigation.navigate('Welcome_0', { userid: result.user.id });
+           }
       } else {
         Alert.alert('Account Registered', 'Please Log In', {text: 'Ok'})    // wont really come here
         this.props.navigation.navigate('FirstScreen')
