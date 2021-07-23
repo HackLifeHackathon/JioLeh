@@ -1,18 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function SelectGameScreen({ navigation }) {
 
-    dayArr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    buttonArr = [];
-    for ( let i = 0; i < dayArr.length; i++) {
-        buttonArr.push(
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>{dayArr[i]}</Text>
-            </TouchableOpacity>
-        );
-    }
+    const [selectMonday, setSelectMonday]= useState(false)
+    const [selectTuesday, setSelectTuesday] = useState(false)
+    const [selectWednesday, setSelectWednesday] = useState(false)
+    const [selectThursday, setSelectThursday] = useState(false)
+    const [selectFriday, setSelectFriday] = useState(false)
+    const [selectSaturday, setSelectSaturday] = useState(false)
+    const [selectSunday, setSelectSunday] = useState(false)
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -21,7 +20,42 @@ export default function SelectGameScreen({ navigation }) {
             <View style={styles.content}>
                 <Text style={styles.header}>I usually play on</Text>
                 <View style={styles.buttonContainer}>
-                {buttonArr}
+                <TouchableOpacity 
+                style={selectMonday ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectMonday(!selectMonday)}
+                >
+                    <Text style={selectMonday ? styles.buttonText : styles.invertedText}>Monday</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                style={selectTuesday ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectTuesday(!selectTuesday)}>
+                    <Text style={selectTuesday ? styles.buttonText : styles.invertedText}>Tuesday</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                style={selectWednesday ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectWednesday(!selectWednesday)}>
+                    <Text style={selectWednesday ? styles.buttonText : styles.invertedText}>Wednesday</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                style={selectThursday ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectThursday(!selectThursday)}>
+                    <Text style={selectThursday ? styles.buttonText : styles.invertedText}>Thursday</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                style={selectFriday ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectFriday(!selectFriday)}>
+                    <Text style={selectFriday ? styles.buttonText : styles.invertedText}>Friday</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                style={selectSaturday ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectSaturday(!selectSaturday)}>
+                    <Text style={selectSaturday ? styles.buttonText : styles.invertedText}>Saturday</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                style={selectSunday ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectSunday(!selectSunday)}>
+                    <Text style={selectSunday ? styles.buttonText : styles.invertedText}>Sunday</Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
@@ -42,41 +76,42 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         alignItems: 'center',
-        //justifyContent: 'center',
     },
     header: {
         fontFamily: 'Monaco',
         fontSize: 25,
-        top: 100,
+        top: 90,
     },
     buttonContainer: {
         flexDirection: 'column',
         position: 'absolute',
         bottom: 100,
     },
-    invertedText: {
+    buttonText: {
         alignSelf: 'center',
         color: 'black',
         fontSize: 16,
     },
-    buttonText: {
+    invertedText: {
         alignSelf: 'center',
         color: '#a8c961',
         fontSize: 16,
     },
-    button: {
+    buttonInverted: {
         paddingVertical: 15,
         paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: 'black',
-        marginBottom: 20,
+        borderWidth: 2,
+        marginBottom: 15,
     },
-    buttonInverted: {
+    button: {
         paddingVertical: 15,
         paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
+        marginBottom: 15,
     },
   });

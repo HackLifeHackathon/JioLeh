@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function SelectGameScreen({ navigation }) {
+    const [selectValorant, setSelectValorant]= useState(false)
+    const [selectCsgo, setSelectCsgo] = useState(false)
+    const [selectDota, setSelectDota] = useState(false)
+    const [selectMincraft, setSelectMinecraft] = useState(false)
+    const [selectMaplesea, setSelectMaplesea] = useState(false)
+    const [selectAmongUs, setSelectAmongUs] = useState(false)
+    const [selectLol, setSelectLol] = useState(false)
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -11,26 +18,41 @@ export default function SelectGameScreen({ navigation }) {
             <View style={styles.content}>
                 <Text style={styles.header}>Games I Play</Text>
                 <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Valorant</Text>
+                <TouchableOpacity 
+                style={selectValorant ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectValorant(!selectValorant)}
+                >
+                    <Text style={selectValorant ? styles.buttonText : styles.invertedText}>Valorant</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Csgo</Text>
+                <TouchableOpacity 
+                style={selectCsgo ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectCsgo(!selectCsgo)}>
+                    <Text style={selectCsgo ? styles.buttonText : styles.invertedText}>Csgo</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Dota 2</Text>
+                <TouchableOpacity 
+                style={selectDota ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectDota(!selectDota)}>
+                    <Text style={selectDota ? styles.buttonText : styles.invertedText}>Dota 2</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Minecraft</Text>
+                <TouchableOpacity 
+                style={selectMincraft ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectMinecraft(!selectMincraft)}>
+                    <Text style={selectMincraft ? styles.buttonText : styles.invertedText}>Minecraft</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Maplesea</Text>
+                <TouchableOpacity 
+                style={selectMaplesea ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectMaplesea(!selectMaplesea)}>
+                    <Text style={selectMaplesea ? styles.buttonText : styles.invertedText}>Maplesea</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Among Us</Text>
+                <TouchableOpacity 
+                style={selectAmongUs ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectAmongUs(!selectAmongUs)}>
+                    <Text style={selectAmongUs ? styles.buttonText : styles.invertedText}>Among Us</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>League of Legends</Text>
+                <TouchableOpacity 
+                style={selectLol ? styles.button : styles.buttonInverted}
+                onPress={() => setSelectLol(!selectLol)}>
+                    <Text style={selectLol ? styles.buttonText : styles.invertedText}>League of Legends</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
                     <Text style={styles.invertedText}>Continue</Text>
@@ -57,7 +79,7 @@ const styles = StyleSheet.create({
     header: {
         fontFamily: 'Monaco',
         fontSize: 25,
-        top: 100,
+        top: 80,
     },
     buttonContainer: {
         flexDirection: 'column',
@@ -79,7 +101,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: 'black',
-        marginBottom: 20,
+        borderWidth: 2,
+        marginBottom: 15,
     },
     buttonInverted: {
         paddingVertical: 15,
@@ -88,5 +111,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
+        marginBottom: 15,
     },
   });
