@@ -87,17 +87,17 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 100,
     },
-    buttonText: {
+    invertedText: {
         alignSelf: 'center',
         color: 'black',
         fontSize: 16,
     },
-    invertedText: {
+    buttonText: {
         alignSelf: 'center',
         color: '#a8c961',
         fontSize: 16,
     },
-    buttonInverted: {
+    button: {
         paddingVertical: 15,
         paddingHorizontal: 40,
         borderRadius: 25,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         marginBottom: 15,
     },
-    button: {
+    buttonInverted: {
         paddingVertical: 15,
         paddingHorizontal: 40,
         borderRadius: 25,
