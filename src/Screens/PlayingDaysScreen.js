@@ -60,6 +60,7 @@ export default function SelectDaysScreen({ route, navigation }) {
                 onPress={() => setSelectSunday(!selectSunday)}>
                     <Text style={selectSunday ? styles.buttonText : styles.invertedText}>Sunday</Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity style={styles.buttonInverted} onPress={() => addDaysAndGo(selectMonday, selectTuesday, selectWednesday, selectThursday, selectFriday, selectSaturday, selectSunday, userid, games, username, gender, age, navigation)}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     header: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 25,
         top: 90,
     },
@@ -130,11 +131,13 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'black',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     buttonText: {
         alignSelf: 'center',
         color: '#a8c961',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,
@@ -146,11 +149,11 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
-        paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
         marginBottom: 15,
+        width: 320,
     },
   });

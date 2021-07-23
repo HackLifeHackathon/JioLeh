@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import LoginScreen from './src/Screens/LoginScreen';
 import SelectGameScreen from './src/Screens/SelectGameScreen';
@@ -9,9 +9,14 @@ import WelcomeScreen from './src/Screens/WelcomeScreen';
 import UsernameScreen from './src/Screens/UsernameScreen';
 import MyBirthdayScreen from './src/Screens/MyBirthdayScreen';
 import PlayingDaysScreen from './src/Screens/PlayingDaysScreen';
+import GameLobbyScreen from './src/Screens/gameLobby/GameLobbyScreen';
+import GameDetailScreen from './src/Screens/gameLobby/GameDetailScreen';
 import SideMenu from './src/components/SideMenu'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import AppLoading from 'expo-app-loading'
+import LoginScreen from './src/Screens/LoginScreen';
+import * as Font from 'expo-font'
 
 import firebase from 'firebase/app';
 import firebaseConfig from "./config/firebaseConfig";
@@ -22,7 +27,23 @@ if (!firebase.apps.length) {
 }
 
 export default function App() {
+  const [isDoneLoading, setDoneLoading] = useState(false)
   const Stack = createStackNavigator();
+
+  const onFinishLoading = () => {
+    setDoneLoading(true)
+  }
+
+  if (!isDoneLoading) {
+    return (
+      <AppLoading
+        startAsync={loadResourcesAsync}
+        onFinish={onFinishLoading}
+        onError={handleLoadingError}
+      />
+    )
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -38,16 +59,21 @@ export default function App() {
         <Stack.Screen name="PlayingDays" component={PlayingDaysScreen} />
         <Stack.Screen name="MyBirthday" component={MyBirthdayScreen} />
         <Stack.Screen name="HomeScreen" component={SideMenu} />
+        <Stack.Screen name="GameLobby" component={GameLobbyScreen} />
+        <Stack.Screen name="GameDetail" component={GameDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+async function loadResourcesAsync() {
+  await Promise.all([
+    Font.loadAsync({
+      RopaSans: require('./assets/fonts/RopaSans-Regular.ttf'),
+    }),
+  ])
+}
+
+function handleLoadingError(error) {
+  console.warn(error)
+}
