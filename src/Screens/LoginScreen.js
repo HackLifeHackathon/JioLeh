@@ -14,7 +14,7 @@ export default function LoginScreen({ navigation }) {
             </TouchableOpacity>
             </View>
         </View>
-    )
+    ) 
 }
 const styles = StyleSheet.create({
     container: {
