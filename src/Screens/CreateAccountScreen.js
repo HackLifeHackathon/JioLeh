@@ -1,81 +1,41 @@
 import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Formik } from 'formik';
+import {
+    StyleSheet, View, TextInput, TouchableOpacity, Text,
+  } from 'react-native'
 
 export default function CreateAccountScreen({ navigation }) {
     return (
         <View style={styles.container}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
-            <Formik
-        initialValues={{
-          description: '',
-          curEmail: profile?.emails[0],
-        }}
-        validationSchema={FormSchema}
-        validateOnChange
-        onSubmit={() => {
-          onSubmit()
-        }}
-      >
-        {(formikProps) => (
-          <>
-            <KeyboardAvoidingView
-              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-              style={styles.keyboardAvoidingViewContainer}
-            >
-              <ScrollView style={styles.content}>
-
-                <View style={styles.contentNewPassword}>
-                  <View style={styles.formContainer}>
-                    <FormField
-                      title="Email Address"
-                      email
-                      enabled={false}
-                      defaultValue={formikProps.values.curEmail}
-                      border={0}
-                    />
-                    <FormField
-                      title={translate('description')}
-                      validateDelay={false}
-                      onChangeText={(text) => {
-                        formikProps.handleChange('description')(text)
-                        setDescription(text)
-                      }}
-                      isTouched={() => formikProps.setFieldTouched('description', true)}
-                      placeholder={translate('description')}
-                      touched={formikProps.touched.description}
-                      error={description === '' && formikProps.errors.description}
-                      showApiErrors
-                      multiline
-                    />
-                    <FormFieldImagesUpload onChangeImages={(images) => {
-                      setImages(images)
-                    }}
-                    />
-                  </View>
-                </View>
-                {showAction && (
-                <View style={styles.relativeFooterContainer}>
-                  <Button
-                    onPress={() => {
-                      formikProps.handleSubmit()
-                    }}
-                    style={ownStyles.footButton}
-                    loading={loading}
-                    disabled={!isAllowToSubmit}
-                  >
-                    {translate('submit')}
-                  </Button>
-                </View>
-                )}
-              </ScrollView>
-            </KeyboardAvoidingView>
-          </>
-        )}
-      </Formik>
-          </TouchableOpacity>
+            </TouchableOpacity>
+            <View style={styles.header}>
+            <Text style={styles.title}>Registration</Text>
+            <View style={styles.form}>
+              <Text style={styles.name}>Email Address</Text>
+              <TextInput
+                style={styles.input}
+                placeholder=" Enter Email"
+              >
+              </TextInput>
+              <Text style={styles.name}>Password</Text>
+              <TextInput
+                style={styles.input}
+                placeholder=" Enter Password"
+                >
+              </TextInput>
+              <Text style={styles.name}>Confirm Password</Text>
+              <TextInput
+                style={styles.input}
+                placeholder=" Re-enter Password"
+                >
+              </TextInput>
+              </View>
+              <TouchableOpacity style={styles.buttonInverted}>
+                  <Text style={styles.invertedText}>Continue</Text>
+              </TouchableOpacity>
+              </View>
         </View>
     )
 }
@@ -83,11 +43,47 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#a8c961',
-      //alignItems: 'center',
-      //justifyContent: 'center',
     },
     chevron: {
         top: 70,
         paddingLeft: 30,
+    },
+    header: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        top: 120,
+    },
+    title: {
+        fontSize: 35,
+      },
+    input: {
+        height: 45,
+        width: 300,
+        marginTop: 12,
+        marginBottom: 20,
+        backgroundColor: 'white',
+        borderBottomColor: '#424242',
+        borderBottomWidth: 2,
+        fontSize: 18,
+      },
+    form: {
+        marginTop: 30,
+    },
+    name: {
+        fontSize: 20,
+    },
+    buttonInverted: {
+        paddingVertical: 15,
+        paddingHorizontal: 120,
+        borderRadius: 25,
+        backgroundColor: '#a8c961',
+        borderColor: 'black',
+        borderWidth: 2,
+        marginTop: 250,
+    },
+    invertedText: {
+        alignSelf: 'center',
+        color: 'black',
+        fontSize: 16,
     },
   });
