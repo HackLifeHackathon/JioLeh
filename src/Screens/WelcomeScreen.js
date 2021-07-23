@@ -2,7 +2,10 @@ import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function WelcomeScreen({ navigation }) {
+export default function WelcomeScreen({ route, navigation }) {
+    const { userid, games } = route.params;
+    // console.log(userid)
+    // console.log(games)
     return (
         <View style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
@@ -35,7 +38,7 @@ export default function WelcomeScreen({ navigation }) {
                     </View>
                     <Text style={styles.ruleDetail}>Always report bad bahaviours.</Text>
                 </View>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Username')}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Username', {userid: userid, games: games})}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
             </View>

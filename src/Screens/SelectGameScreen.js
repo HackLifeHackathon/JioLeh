@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Alert } from 'react-native';
+
+var games = [];
 
 export default function SelectGameScreen({ route, navigation }) {
     const { userid } = route.params;
@@ -11,14 +13,14 @@ export default function SelectGameScreen({ route, navigation }) {
     const [selectMaplesea, setSelectMaplesea] = useState(false)
     const [selectAmongUs, setSelectAmongUs] = useState(false)
     const [selectLol, setSelectLol] = useState(false)
+
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
                 <Text style={styles.header}>Games I Play</Text>
-                <Text style={styles.header}>{JSON.stringify(userid)}</Text>
 
                 <View style={styles.buttonContainer}>
                 <TouchableOpacity 
@@ -57,14 +59,46 @@ export default function SelectGameScreen({ route, navigation }) {
                 onPress={() => setSelectLol(!selectLol)}>
                     <Text style={selectLol ? styles.buttonText : styles.invertedText}>League of Legends</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => addGamesAndGo(selectValorant, selectCsgo, selectDota, selectMincraft, selectMaplesea, selectAmongUs, selectLol, userid, navigation)}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
+
+function addGamesAndGo (isValo, isCsgo, isDota, isMinecraft, isMaple, isAmongUs, isLol, userid, navigation) {
+    if (isValo){
+        games.push('Valo');
+    }
+    if (isCsgo){
+        games.push('Csgo');
+    }
+    if (isDota){
+        games.push('Dota');
+    }
+    if (isMinecraft){
+        games.push('Minecraft');
+    }
+    if (isMaple){
+        games.push('Maple');
+    }
+    if (isAmongUs){
+        games.push('AmongUs');
+    }
+    if (isLol){
+        games.push('Lol');
+    }
+    
+    console.log(games);
+    if (games.length == 0) {
+        Alert.alert("Don't Be Shy!", "Cool Kids Play Games!", {Text: 'Ok'});
+    } else {
+        navigation.navigate('Welcome', {userid: userid, games: games});
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,

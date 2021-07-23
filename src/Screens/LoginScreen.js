@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TouchableWithoutFeedback, Keyboard } from "react-native";
+import { TouchableWithoutFeedback, Keyboard, SafeAreaView } from "react-native";
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from "react-native";
 import firebase from "firebase";
 import * as Google from 'expo-google-app-auth';
@@ -82,6 +82,7 @@ export default class LoginScreen extends Component {
 	};
     render() {
         return (
+            <SafeAreaView style={styles.container}>
             <DismissKeyboardView style={styles.container}>
                 <Text style={styles.header}>JioLeh</Text>
                 <View style={styles.buttonContainer}>
@@ -96,6 +97,7 @@ export default class LoginScreen extends Component {
                 </TouchableOpacity>
                 </View>
             </DismissKeyboardView>
+            </SafeAreaView>
         ) 
     }
 }

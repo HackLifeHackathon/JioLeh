@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
+// Might need keyboard
+
+
+export default function SelectGameScreen({ route, navigation }) {
+    const { userid, games } = route.params;    
+    
+    const [username, setUsername]= useState('')
+
     return (
         <View style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
@@ -13,17 +20,27 @@ export default function SelectGameScreen({ navigation }) {
                 <TextInput
                 style={styles.input}
                 placeholder=" Enter Username"
+                onChangeText={(value) => setUsername(value)}
                 >
                 </TextInput>
                 <Text style={styles.headerTwo}>This is the name that others will see.
                 Feel free to use a nickname or your first name!</Text>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('SelectGender')}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => checkUsernameAndGo(userid, games, username, navigation)}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
+
+function checkUsernameAndGo(userid, games, username, navigation) {
+    if (username.length == 0) {
+        Alert.alert('Hi There!', 'Please enter a valid username', {Text: 'Ok'})
+    } else {
+        navigation.navigate('SelectGender', { userid: userid, games: games, username: username })
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,

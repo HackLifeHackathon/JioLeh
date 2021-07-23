@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Alert } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
+// Numeric representation of the days: 1 = Mon, 2 = Tues, 3 = Wed...
+var playDays = [];
+
+export default function SelectDaysScreen({ route, navigation }) {
+    const { userid, games, username, gender, age } = route.params;
 
     const [selectMonday, setSelectMonday]= useState(false)
     const [selectTuesday, setSelectTuesday] = useState(false)
@@ -13,7 +17,7 @@ export default function SelectGameScreen({ navigation }) {
     const [selectSunday, setSelectSunday] = useState(false)
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
@@ -56,14 +60,49 @@ export default function SelectGameScreen({ navigation }) {
                 onPress={() => setSelectSunday(!selectSunday)}>
                     <Text style={selectSunday ? styles.buttonText : styles.invertedText}>Sunday</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Welcome')}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => addDaysAndGo(selectMonday, selectTuesday, selectWednesday, selectThursday, selectFriday, selectSaturday, selectSunday, userid, games, username, gender, age, navigation)}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
+
+function addDaysAndGo (isMon, isTues, isWed, isThu, isFri, isSat, isSun, userid, games, username, gender, age, navigation) {
+    if (isMon) {
+        playDays.push(1)
+    }
+    if (isTues) {
+        playDays.push(2)
+    }
+
+    if (isWed) {
+        playDays.push(3)
+    }
+
+    if (isThu) {
+        playDays.push(4)
+    }
+
+    if (isFri) {
+        playDays.push(5)
+    }
+
+    if (isSat) {
+        playDays.push(6)
+    }
+    if (isSun) {
+        playDays.push(7)
+    }
+
+    if(playDays.length == 0) {
+        Alert.alert("Don't Be Shy!", "Cool Kids Play Games!", {Text: 'Ok'});
+    } else {
+        navigation.navigate('Welcome', { userid: userid, games: games, username: username, gender: gender, age: age, playDays: playDays})
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,

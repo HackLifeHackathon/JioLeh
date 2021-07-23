@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { TouchableWithoutFeedback, Keyboard } from "react-native";
+import { TouchableWithoutFeedback, Keyboard, SafeAreaView } from "react-native";
 import {
     StyleSheet, View, TextInput, TouchableOpacity, Text, Image
   } from 'react-native'
@@ -114,10 +114,11 @@ export default class CreateAccountScreen extends Component {
    };
 
     render () {
-        const [email, setEmail] = useState('')
-        const [password, setPassword] = useState('')
+        // const [email, setEmail] = useState('')
+        // const [password, setPassword] = useState('')
 
         return (
+            <SafeAreaView style={styles.container}>
             <DismissKeyboardView style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
@@ -129,21 +130,21 @@ export default class CreateAccountScreen extends Component {
                 <TextInput
                     style={styles.input}
                     placeholder=" Enter Email"
-                    value={email}
+                    // value={email}
                 >
                 </TextInput>
                 <Text style={styles.name}>Password</Text>
                 <TextInput
                     style={styles.input}
                     placeholder=" Enter Password"
-                    value={password}
+                    // value={password}
                     >
                 </TextInput>
                 <Text style={styles.name}>Confirm Password</Text>
                 <TextInput
                     style={styles.input}
                     placeholder=" Re-enter Password"
-                    value={password}
+                    // value={password}
                     >
                 </TextInput>
                 </View>
@@ -166,6 +167,7 @@ export default class CreateAccountScreen extends Component {
                     </View>
                 </View>
             </DismissKeyboardView>
+            </SafeAreaView>
         )  
     }
 }

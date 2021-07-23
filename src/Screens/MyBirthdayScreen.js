@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, SafeAreaView, Button, Alert } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-export default function MyBirthdayScreen({ navigation }) {
+export default function MyBirthdayScreen({ route, navigation }) {
+    const { userid, games, username, gender } = route.params;
+
+    const [date, setDate] = useState(new Date())
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShow(Platform.OS === 'ios');
+        setDate(currentDate);
+    };
+
+    const showMode = (currentMode) => {
+        setShow(true);
+        setMode(currentMode);
+      };
+
+    const showDatepicker = () => {
+        showMode('date');
+      };
     return (
         <View style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
@@ -10,18 +31,45 @@ export default function MyBirthdayScreen({ navigation }) {
             </TouchableOpacity>
             <View style={styles.content}>
                 <Text style={styles.header}>My Birthday is...</Text>
-                <TextInput
-                style={styles.input}
-                placeholder=" DD/MM/YY"
-                >
-                </TextInput>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('PlayingDays')}>
+                <View style={styles.buttonContainer}>
+                    <View>
+                        <Button onPress={showDatepicker} title="Show date picker!" />
+                    </View>
+                    {show && (
+                        <DateTimePicker
+                        testID="dateTimePicker"
+                        value={date}
+                        mode={mode}
+                        is24Hour={true}
+                        display="spinner"
+                        onChange={onChange}
+                        />
+                    )}
+                </View>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => calculateAgeAndGo(navigation, userid, games, username, gender, date)}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
+
+function calculateAgeAndGo(navigation, userid, games, username, gender, bday) {
+    var inputYear  = bday.getFullYear();
+    var currentYear = new Date().getFullYear();
+    var userAge = currentYear - inputYear;
+
+    if (userAge <= 0) {
+        Alert.alert("Hold Up!", "Are you even born yet?")
+    } else if (userAge <= 3) {
+        Alert.alert("Young One", "Please focus on studying!")
+    } else if (userAge > 80) {
+        Alert.alert("Hey!", "Are you sure?")
+    } else {
+        navigation.navigate('PlayingDays', { userid: userid, games: games, username: username, gender: gender, userAge: userAge})
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -41,7 +89,7 @@ const styles = StyleSheet.create({
         top: 120,
         height: 45,
         width: 300,
-        marginTop: 12,
+        marginTop: 12, 
         marginBottom: 20,
         backgroundColor: 'white',
         borderBottomColor: '#424242',

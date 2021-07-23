@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import { FontAwesome5 } from '@expo/vector-icons'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Alert } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
+export default function SelectGameScreen({ route, navigation }) {
+    const { userid, games, username } = route.params;
+
     const [selectMale, setSelectMale] = useState(false)
     const [selectFemale, setSelectFemale] = useState(false)
     
@@ -29,13 +31,26 @@ export default function SelectGameScreen({ navigation }) {
             </View>
             <TouchableOpacity
             style={styles.continue}
-            onPress={() => navigation.navigate('MyBirthday')}>
+            onPress={() => checkGenderAndGo(navigation, selectMale, selectFemale, userid, games, username)}>
                   <Text style={styles.invertedText}>Continue</Text>
               </TouchableOpacity>
               </View>
         </View>
     )
 }
+
+function checkGenderAndGo(navigation, isMale, isFemale, userid, games, username) {
+    if (!isMale && !isFemale) {
+        Alert.alert('Hi There!', 'We do support LGBT but please just choose a gender', {Text: 'I understand!'})
+    } else {
+        var gender = 'M'
+        if (isFemale) {
+            gender = 'F'
+        }
+        navigation.navigate('MyBirthday', { userid: userid, games: games, username: username, gender: gender })
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
