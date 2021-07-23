@@ -12,7 +12,41 @@ export default function GameDetailScreen({ navigation, route }) {
             </TouchableOpacity>
             <View style={styles.content}>
                 <Text style={styles.header}>{selectedGame}</Text>
-                
+                <View style={styles.hostBox}>  
+                    <View style={styles.hostContainer}>
+                        <Text style={styles.hostText}>Host: Leon</Text>
+                    </View>
+                    <View style={styles.hostCircle}>
+                            <Text style={styles.circleText}>+2</Text>
+                    </View>
+                </View>
+
+                <View style={styles.hostBox}>  
+                    <View style={styles.hostContainer}>
+                        <Text style={styles.hostText}>Host: Bea</Text>
+                    </View>
+                    <View style={styles.hostCircle}>
+                            <Text style={styles.circleText}>+1</Text>
+                    </View>
+                </View>
+
+                <View style={styles.hostBox}>  
+                    <View style={styles.hostContainer}>
+                        <Text style={styles.hostText}>Host: Piper</Text>
+                    </View>
+                    <View style={styles.hostCircle}>
+                            <Text style={styles.circleText}>0</Text>
+                    </View>
+                </View>
+
+                <View style={styles.hostBox}>  
+                    <View style={styles.hostContainer}>
+                        <Text style={styles.hostText}>Host: Sandy</Text>
+                    </View>
+                    <View style={styles.hostCircle}>
+                            <Text style={styles.circleText}>+5</Text>
+                    </View>
+                </View>
             </View>
         </View>
     )
@@ -29,12 +63,49 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         alignItems: 'center',
-        //justifyContent: 'center',
+        display: 'flex',
+        flexDirection: 'column'
     },
     header: {
         fontFamily: 'Monaco',
         fontSize: 25,
-        top: 80,
+        marginTop: 80,
+        marginBottom: 20
+    },
+    hostBox: {
+        height: '10%',
+        width: '80%',
+        margin: 18
+    },
+    
+    hostContainer: {
+        height: '100%',
+        width: '100%',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        
+    },
+    hostText: {
+        fontSize: 25,
+    },
+    hostCircle: {
+        position: 'absolute',
+        right: -10,
+        top: -15,
+        backgroundColor: 'white',
+        borderColor: 'red',
+        borderRadius: 50,
+        borderWidth: 5,
+        borderStyle: 'solid',
+        height: 40,
+        width: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    circleText: {
+        margin: 4,
     },
     buttonContainer: {
         flexDirection: 'column',

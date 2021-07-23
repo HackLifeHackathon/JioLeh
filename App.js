@@ -23,7 +23,7 @@ export default function App() {
       screenOptions={{
         headerShown: false
       }}>
-        <Stack.Screen name="FirstScreen" component={GameLobbyScreen} />
+        <Stack.Screen name="FirstScreen" component={LoginScreen} />
         <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
         <Stack.Screen name="SelectGame" component={SelectGameScreen} />
         <Stack.Screen name="SelectGender" component={SelectGenderScreen} />
