@@ -42,52 +42,69 @@ export default class CreateAccountScreen extends Component {
     };  
 
     onSignIn = (googleUser) => {
-    console.log("Google Auth Response");
-    // We need to register an Observer on Firebase Auth to make sure auth is initialized.
-    var unsubscribe = firebase.auth().onAuthStateChanged((firebaseUser) => {
+      console.log("Google Auth Response");
+      // We need to register an Observer on Firebase Auth to make sure auth is initialized.
+      var unsubscribe = firebase.auth().onAuthStateChanged((firebaseUser) => {
         unsubscribe();
         // Check if we are already signed-in Firebase with the correct user.
         if (!this.isUserEqual(googleUser, firebaseUser)) {
-        // Build Firebase credential with the Google ID token.
-        var credential = firebase.auth.GoogleAuthProvider.credential(
+          // Build Firebase credential with the Google ID token.
+          var credential = firebase.auth.GoogleAuthProvider.credential(
             googleUser.idToken,
             googleUser.accessToken, 
-        );
-        // Sign in with credential from the Google user.
-        firebase.auth().signInWithCredential(credential)
+          );
+          // Sign in with credential from the Google user.
+          firebase.auth().signInWithCredential(credential)
             .then((result) => {
-            console.log("user signed in");
+              console.log("user signed in");
+  
+              if (result.additionalUserInfo.isNewUser) {
+                console.log("new user")
+                firebase
+                    .database()
+                    .ref("users/" + result.user.uid)
+                    .set({
+                    gmail: result.user.email,
+                    profile_picture: result.additionalUserInfo.profile.picture,
+                    username: result.user.displayName,
+                    uid: result.user.uid,
+                    }).catch(function(e) {
+                      console.log("upload data to firebase failed: " + e);
+                  })
+                  } else {
+                  console.log("old user")
+                }
             })
             .catch(function (error) {
-            console.log(error);
+              console.log(error);
             });
         } else {
-        console.log("User already has an account Firebase.");
+          console.log("User already signed-in Firebase.");
         }
-    })
-    .bind(this);
+      })
+      .bind(this);
     };
 
     signInWithGoogleAsync = async () => {
-    try {
-        const result = await Google.logInAsync(config);
-        if (result.type === "success") {
-        this.onSignIn(result);
-        return result.accessToken;
-        } else {
-        console.log("log in failed: " + result.type)
-        return { cancelled: true };
+        try {
+            const result = await Google.logInAsync(config);
+            if (result.type === "success") {
+            this.onSignIn(result);
+            return result.accessToken;
+            } else {
+            console.log("log in failed: " + result.type)
+            return { cancelled: true };
+            }
+        } catch (e) {
+            console.log(e)
+            return { error: true };
         }
-    } catch (e) {
-        console.log(e)
-        return { error: true };
-    }
    };
 
-    render() {
+    render () {
         return (
             <DismissKeyboardView style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
                 </TouchableOpacity>
                 <View style={styles.header}>
@@ -112,14 +129,14 @@ export default class CreateAccountScreen extends Component {
                     >
                 </TextInput>
                 </View>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('SelectGame')}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => this.props.navigation.navigate('SelectGame')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
                     <View style={styles.googleBlock}>
-                        <Image 
+                        {/* <Image 
                             style={styles.img}
-                            source={require("../../assets/google.png")}></Image>
-                        <TouchableOpacity
+                            source={require("../../assets/google.png")}></Image> */}
+                        <TouchableOpacity 
                             onPress={() => {
                                 console.log("pressed")
                                 this.signInWithGoogleAsync()
@@ -130,7 +147,7 @@ export default class CreateAccountScreen extends Component {
                     </View>
                 </View>
             </DismissKeyboardView>
-        )
+        )  
     }
 }
 
