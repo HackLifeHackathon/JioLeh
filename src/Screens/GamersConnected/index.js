@@ -55,10 +55,10 @@ export default function GamersConnected({ navigation }) {
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.buttonSelect} onPress={() => onPressConnect()}>
             <FontAwesome5 name="chevron-left" size={25} color='black'/>
-                <Text style={{ fontSize: 20, marginLeft: 10 }}>CONNECT</Text>
+                <Text style={{ fontSize: 20, marginLeft: 10, fontFamily: 'RopaSans' }}>CONNECT</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonSelect}  onPress={() => pressNext()}>
-                <Text style={{ fontSize: 20, marginRight: 10 }}>NEXT</Text>
+                <Text style={{ fontSize: 20, marginRight: 10, fontFamily: 'RopaSans' }}>NEXT</Text>
                 <FontAwesome5 name="chevron-right" size={25} color='black'/>
             </TouchableOpacity>
             </View>
@@ -137,28 +137,6 @@ const styles = StyleSheet.create({
       },
       profile: {
         marginTop: 100,
-      },
-      information: {
-        paddingLeft: 15,
-        alignSelf: 'center',
-        backgroundColor: 'white',
-        width: 350,
-      },
-      name: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginRight: 10,
-      },
-      line:{
-        marginVertical: 15,
-        fontSize: 16,
-      },
-      gameToken:{
-        padding: 10,
-        borderColor: '#e3714b',
-        borderWidth: 2,
-        borderRadius: 20,
-        marginRight: 10,
       },
       buttonSelect: {
           flexDirection: 'row',

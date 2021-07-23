@@ -52,11 +52,13 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'black',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     buttonText: {
         alignSelf: 'center',
         color: '#a8c961',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,

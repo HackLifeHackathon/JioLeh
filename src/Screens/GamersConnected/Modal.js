@@ -19,12 +19,14 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#a8c961',
     fontWeight: 'bold',
+    fontFamily: 'RopaSans',
   },
   messageContainer: {
     marginVertical: 25,
   },
   message: {
     fontSize: 18,
+    fontFamily: 'RopaSans',
   },
   closeButton: {
     position: 'absolute',

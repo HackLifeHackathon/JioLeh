@@ -94,10 +94,12 @@ const styles = StyleSheet.create({
           fontSize: 20,
           fontWeight: 'bold',
           marginRight: 10,
+          fontFamily: 'RopaSans',
         },
         line:{
           marginVertical: 15,
           fontSize: 16,
+          fontFamily: 'RopaSans',
         },
         gameToken:{
           padding: 10,

@@ -58,12 +58,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     header: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 25,
         top: 100,
     },
     headerTwo: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 20,
         top: 105,
         marginBottom: 10,
@@ -81,11 +81,11 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     ruleTitle: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 20,
     },
     ruleDetail: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 18,
     },
     buttonContainer: {
@@ -97,11 +97,13 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'black',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     buttonText: {
         alignSelf: 'center',
         color: '#a8c961',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,

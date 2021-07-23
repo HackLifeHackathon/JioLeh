@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-      
     },
     input: {
         top: 120,
@@ -47,18 +46,19 @@ const styles = StyleSheet.create({
         borderBottomColor: '#424242',
         borderBottomWidth: 2,
         fontSize: 18,
+        fontFamily: 'RopaSans',
     },
     content: {
         alignItems: 'center',
         justifyContent: 'center',
     },
     header: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 25,
         top: 100,
     },
     headerTwo: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 20,
         top: 105,
         margin: 20,
@@ -92,11 +92,13 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'black',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     buttonText: {
         alignSelf: 'center',
         color: '#a8c961',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,

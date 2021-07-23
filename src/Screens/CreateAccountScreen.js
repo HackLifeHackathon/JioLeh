@@ -61,6 +61,7 @@ header: {
 },
 title: {
   fontSize: 35,
+  fontFamily: 'RopaSans',
 },
 input: {
   height: 45,
@@ -72,12 +73,14 @@ input: {
   borderBottomWidth: 2,
   fontSize: 18,
   paddingLeft: 15,
+  fontFamily: 'RopaSans',
 },
 form: {
   marginTop: 30,
 },
 name: {
   fontSize: 20,
+  fontFamily: 'RopaSans',
 },
 buttonInverted: {
   paddingVertical: 15,
@@ -93,5 +96,6 @@ invertedText: {
   alignSelf: 'center',
   color: 'black',
   fontSize: 16,
+  fontFamily: 'RopaSans',
 },
 });

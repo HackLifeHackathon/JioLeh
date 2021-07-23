@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
     },
     header: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 35,
         top: 100,
     },
@@ -54,15 +54,11 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         marginTop: 200, 
     },
-    invertedText: {
-        alignSelf: 'center',
-        color: 'black',
-        fontSize: 16,
-    },
     buttonText: {
         alignSelf: 'center',
         color: '#a8c961',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,
@@ -85,6 +81,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'black',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     continue: {
         paddingVertical: 15,

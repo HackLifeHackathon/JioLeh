@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
     },
     header: {
-        fontFamily: 'Monaco',
+        fontFamily: 'RopaSans',
         fontSize: 25,
         top: 80,
     },
@@ -65,11 +65,13 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'black',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     buttonText: {
         alignSelf: 'center',
         color: '#a8c961',
         fontSize: 16,
+        fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,
