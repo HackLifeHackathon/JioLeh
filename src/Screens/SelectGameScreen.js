@@ -5,7 +5,9 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 export default function SelectGameScreen() {
     return (
         <View style={styles.container}>
-            <FontAwesome5 name="chevron-left" />
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
+            </TouchableOpacity>
             <Text style={styles.header}>Games I Play</Text>
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button}>
@@ -42,6 +44,10 @@ const styles = StyleSheet.create({
       backgroundColor: '#a8c961',
       alignItems: 'center',
       //justifyContent: 'center',
+    },
+    chevron: {
+        top: 70,
+        paddingLeft: 30,
     },
     header: {
         fontFamily: 'Monaco',

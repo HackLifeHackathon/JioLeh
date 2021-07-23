@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import LoginScreen from './src/Screens/LoginScreen';
 import SelectGameScreen from './src/Screens/SelectGameScreen';
 import CreateAccountScreen from './src/Screens/CreateAccountScreen';
+import WelcomeScreen from './src/Screens/WelcomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -15,7 +16,7 @@ export default function App() {
       screenOptions={{
         headerShown: false
       }}>
-        <Stack.Screen name="FirstScreen" component={LoginScreen} />
+        <Stack.Screen name="FirstScreen" component={WelcomeScreen} />
         <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
         <Stack.Screen name="SelectGame" component={SelectGameScreen} />
       </Stack.Navigator>
