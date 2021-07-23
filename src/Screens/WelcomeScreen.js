@@ -1,18 +1,19 @@
 import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import firebase from 'firebase/app';
+
 
 export default function WelcomeScreen({ route, navigation }) {
-    const { userid, games } = route.params;
-    // console.log(userid)
-    // console.log(games)
+    const { userid, games, username, gender, userAge, playDays } = route.params;
+    console.log(userid, games, username, gender, userAge, playDays);
     return (
         <View style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
-                <Text style={styles.header}>Welcome to JioLeh</Text>
+                <Text style={styles.header}>Welcome to JioLeh!</Text>
                 <Text style={styles.headerTwo}>Please follow these house rules.</Text>
                 <View style={styles.ruleContainer}>
                     <View style={styles.ruleHeader}>
@@ -38,13 +39,29 @@ export default function WelcomeScreen({ route, navigation }) {
                     </View>
                     <Text style={styles.ruleDetail}>Always report bad bahaviours.</Text>
                 </View>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('Username', {userid: userid, games: games})}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => updateFirestoreAndGo(userid, games, username, gender, userAge, playDays, navigation)}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
+
+function updateFirestoreAndGo(userid, games, username, gender, userAge, playDays, navigation) {
+    firebase.firestore()
+    .collection('UserDetails').add({
+        userid: userid,
+        games: games,
+        username: username,
+        gender: gender,
+        userAge: userAge,
+        playDays: playDays
+    }).catch((error) => console.log(error));
+
+    navigation.navigate("HomeScreen");
+}
+
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,

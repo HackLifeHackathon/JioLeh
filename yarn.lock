@@ -3259,17 +3259,15 @@ destroy@~1.0.4:
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
-<<<<<<< HEAD
 dom-storage@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/dom-storage/-/dom-storage-2.1.0.tgz#00fb868bc9201357ea243c7bcfd3304c1e34ea39"
   integrity sha512-g6RpyWXzl0RR6OTElHKBl7nwnK87GUyZMYC7JWsB/IA73vpqK2K6LT39x4VepLxlSsWBFrPVLnsSR5Jyty0+2Q==
-=======
+
 dom-walk@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.2.tgz#0c548bef048f4d1f2a97249002236060daa3fd84"
   integrity sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==
->>>>>>> main
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -3423,7 +3421,6 @@ expand-brackets@^2.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-<<<<<<< HEAD
 expo-app-auth@~10.2.2:
   version "10.2.2"
   resolved "https://registry.yarnpkg.com/expo-app-auth/-/expo-app-auth-10.2.2.tgz#f0d76d376384da2a1c843f154f5027ffbd0219ed"
@@ -3432,14 +3429,13 @@ expo-app-auth@~10.2.2:
     "@expo/config-plugins" "^3.0.0"
     expo-modules-core "~0.2.0"
     invariant "^2.2.4"
-=======
+
 expo-app-loading@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/expo-app-loading/-/expo-app-loading-1.1.2.tgz#9efcc29d373c2cd2fcddde5a04cb13875a539ac4"
   integrity sha512-JdWa9CpB4LpIYgh9WLhpr5KoMOaBob03yBcKdSw1TIDgYUtCGfRLouxadpVOtkudY1x4/NN4ZZrH7Y5nB3SdlA==
   dependencies:
     expo-splash-screen "~0.11.2"
->>>>>>> main
 
 expo-application@~3.2.0:
   version "3.2.0"
@@ -3529,7 +3525,7 @@ expo-status-bar@~1.0.4:
   resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.0.4.tgz#d8a4c4418b5868c1606969b12bdee85b6fa7d8a4"
   integrity sha512-s7nc496D/Zn1NGiMJ5wu6HyIdXxbgGtmZZtbHm7rpbcmLdf28GmMSNHDx7M0t00BMhky7VAurTCUo+BJs8ugsw==
 
-expo@^42.0.3:
+expo@~42.0.1:
   version "42.0.3"
   resolved "https://registry.yarnpkg.com/expo/-/expo-42.0.3.tgz#b92278bcac5c42def707cd1bab8ea2ef077f3120"
   integrity sha512-m8gqCLIMGf/i7XVAicocHOCOWYlLBLUyufGTXZfPHZ4xstSQUTB5PekzMoXoX115zocNbiNASMzy3SFIJ/MP8A==
@@ -4125,17 +4121,15 @@ iconv-lite@^0.6.2:
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
-<<<<<<< HEAD
 idb@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/idb/-/idb-3.0.2.tgz#c8e9122d5ddd40f13b60ae665e4862f8b13fa384"
   integrity sha512-+FLa/0sTXqyux0o6C+i2lOR0VoS60LU/jzUo5xjfY6+7sEEgy4Gz1O7yFBXvjd7N0NyIGWIRg8DcQSLEG+VSPw==
-=======
+
 ieee754@^1.1.13:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
->>>>>>> main
 
 image-size@^0.6.0:
   version "0.6.3"
@@ -5668,17 +5662,15 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-<<<<<<< HEAD
-promise-polyfill@8.1.3:
-  version "8.1.3"
-  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.1.3.tgz#8c99b3cf53f3a91c68226ffde7bde81d7f904116"
-  integrity sha512-MG5r82wBzh7pSKDRa9y+vllNHz3e3d4CNj1PQE4BQYxLme0gKYYBm9YENq+UkEikyZ0XbiGWxYlVw3Rl9O/U8g==
-=======
 process@^0.11.10:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
->>>>>>> main
+
+promise-polyfill@8.1.3:
+  version "8.1.3"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.1.3.tgz#8c99b3cf53f3a91c68226ffde7bde81d7f904116"
+  integrity sha512-MG5r82wBzh7pSKDRa9y+vllNHz3e3d4CNj1PQE4BQYxLme0gKYYBm9YENq+UkEikyZ0XbiGWxYlVw3Rl9O/U8g==
 
 promise@^7.1.1:
   version "7.3.1"
@@ -5793,19 +5785,17 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-<<<<<<< HEAD
-react-native-date-picker@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/react-native-date-picker/-/react-native-date-picker-3.3.2.tgz#1e08ae1793112510cd19eaca900b3be3b21c7339"
-  integrity sha512-iLlze62sBPwHXaBz69eXPy8cA5vXWV21UaDflQ6TECDhOOQ5HTeDXqSHrQFNPqsYwfmHADGiQdKRnzRy5st2VA==
-=======
 react-native-animatable@1.3.3, react-native-animatable@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz#a13a4af8258e3bb14d0a9d839917e9bb9274ec8a"
   integrity sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==
   dependencies:
     prop-types "^15.7.2"
->>>>>>> main
+
+react-native-date-picker@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-date-picker/-/react-native-date-picker-3.3.2.tgz#1e08ae1793112510cd19eaca900b3be3b21c7339"
+  integrity sha512-iLlze62sBPwHXaBz69eXPy8cA5vXWV21UaDflQ6TECDhOOQ5HTeDXqSHrQFNPqsYwfmHADGiQdKRnzRy5st2VA==
 
 react-native-gesture-handler@~1.10.2:
   version "1.10.3"

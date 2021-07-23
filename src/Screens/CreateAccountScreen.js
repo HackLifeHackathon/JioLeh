@@ -106,7 +106,7 @@ export default class CreateAccountScreen extends Component {
       const result = await this.signInWithGoogleAsync()
       console.log(result.user.id)
       if (result.type == "success") {
-          this.props.navigation.navigate('SelectGame', {userid: result.user.id});
+          this.props.navigation.navigate('Welcome_0', {userid: result.user.id});
       } else {
         Alert.alert('Account Registered', 'Please Log In', {text: 'Ok'})    // wont really come here
         this.props.navigation.navigate('FirstScreen')

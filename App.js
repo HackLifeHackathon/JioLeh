@@ -1,7 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {Component, useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import LoginScreen from './src/Screens/LoginScreen';
 import SelectGameScreen from './src/Screens/SelectGameScreen';
 import SelectGenderScreen from './src/Screens/SelectGenderScreen';
 import CreateAccountScreen from './src/Screens/CreateAccountScreen';
@@ -14,8 +11,10 @@ import GameDetailScreen from './src/Screens/gameLobby/GameDetailScreen';
 import SideMenu from './src/components/SideMenu'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import AppLoading from 'expo-app-loading'
+import AppLoading from 'expo-app-loading';
 import LoginScreen from './src/Screens/LoginScreen';
+import WelcomeScreen_0 from './src/Screens/WelcomeScreen_0';
+
 import * as Font from 'expo-font'
 
 import firebase from 'firebase/app';
@@ -55,6 +54,7 @@ export default function App() {
         <Stack.Screen name="SelectGame" component={SelectGameScreen} />
         <Stack.Screen name="SelectGender" component={SelectGenderScreen} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="Welcome_0" component={WelcomeScreen_0} />
         <Stack.Screen name="Username" component={UsernameScreen} />
         <Stack.Screen name="PlayingDays" component={PlayingDaysScreen} />
         <Stack.Screen name="MyBirthday" component={MyBirthdayScreen} />

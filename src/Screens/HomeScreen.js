@@ -3,6 +3,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
+
     const [selectLobby, setSelectLobby] = useState(false)
     const [selectGamers, setSelectGamers] = useState(false)
     return (

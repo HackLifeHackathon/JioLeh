@@ -6,7 +6,7 @@ import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Alert } from 'r
 var playDays = [];
 
 export default function SelectDaysScreen({ route, navigation }) {
-    const { userid, games, username, gender, age } = route.params;
+    const { userid, games, username, gender, userAge } = route.params;
 
     const [selectMonday, setSelectMonday]= useState(false)
     const [selectTuesday, setSelectTuesday] = useState(false)
@@ -61,7 +61,7 @@ export default function SelectDaysScreen({ route, navigation }) {
                     <Text style={selectSunday ? styles.buttonText : styles.invertedText}>Sunday</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => addDaysAndGo(selectMonday, selectTuesday, selectWednesday, selectThursday, selectFriday, selectSaturday, selectSunday, userid, games, username, gender, age, navigation)}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => addDaysAndGo(selectMonday, selectTuesday, selectWednesday, selectThursday, selectFriday, selectSaturday, selectSunday, userid, games, username, gender, userAge, navigation)}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
                 </View>
@@ -70,7 +70,7 @@ export default function SelectDaysScreen({ route, navigation }) {
     )
 }
 
-function addDaysAndGo (isMon, isTues, isWed, isThu, isFri, isSat, isSun, userid, games, username, gender, age, navigation) {
+function addDaysAndGo (isMon, isTues, isWed, isThu, isFri, isSat, isSun, userid, games, username, gender, userAge, navigation) {
     if (isMon) {
         playDays.push(1)
     }
@@ -100,7 +100,7 @@ function addDaysAndGo (isMon, isTues, isWed, isThu, isFri, isSat, isSun, userid,
     if(playDays.length == 0) {
         Alert.alert("Don't Be Shy!", "Cool Kids Play Games!", {Text: 'Ok'});
     } else {
-        navigation.navigate('Welcome', { userid: userid, games: games, username: username, gender: gender, age: age, playDays: playDays})
+        navigation.navigate('Welcome', { userid: userid, games: games, username: username, gender: gender, userAge: userAge, playDays: playDays})
     }
 }
 
