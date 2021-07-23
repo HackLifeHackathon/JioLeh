@@ -24,6 +24,7 @@ const config = {
 };
 
 export default class CreateAccountScreen extends Component {
+    
     isUserEqual = (googleUser, firebaseUser) => {
         if (firebaseUser) {
             var providerData = firebaseUser.providerData;
@@ -31,7 +32,7 @@ export default class CreateAccountScreen extends Component {
             if (providerData[i].providerId === 
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
                 providerData[i].uid === 
-                googleUser.uid
+                googleUser.user.id
             ) {
                 // We don't need to reauth the Firebase connection.
                 return true;
@@ -60,8 +61,6 @@ export default class CreateAccountScreen extends Component {
   
               if (result.additionalUserInfo.isNewUser) {
                 console.log("new user")
-                // should navigate elsewhere?
-
                 // firebase
                 //     .database()
                 //     .ref("users/" + result.user.uid)
@@ -74,7 +73,7 @@ export default class CreateAccountScreen extends Component {
                 //       console.log("upload data to firebase failed: " + e);
                 //   })
                   } else {
-                  console.log("old user")
+                  console.log("old user");
                 }
             })
             .catch(function (error) {
@@ -91,16 +90,27 @@ export default class CreateAccountScreen extends Component {
         try {
             const result = await Google.logInAsync(config);
             if (result.type === "success") {
-            this.onSignIn(result);
-            return result.accessToken;
+                this.onSignIn(result);
+                return result;
             } else {
-            console.log("log in failed: " + result.type)
-            return { cancelled: true };
+                console.log("log in failed: " + result.type)
+                return { cancelled: true };
             }
         } catch (e) {
             console.log(e)
             return { error: true };
         }
+   };
+
+   confirmLogin = async(navigation) => {
+      const result = await this.signInWithGoogleAsync()
+      console.log(result.user.id)
+      if (result.type == "success") {
+          this.props.navigation.navigate('SelectGame', {userid: result.user.id});
+      } else {
+        Alert.alert('Account Registered', 'Please Log In', {text: 'Ok'})    // wont really come here
+        this.props.navigation.navigate('FirstScreen')
+      }
    };
 
     render () {
@@ -141,8 +151,9 @@ export default class CreateAccountScreen extends Component {
                         <TouchableOpacity 
                             onPress={() => {
                                 console.log("pressed")
-                                this.signInWithGoogleAsync()
-                            }}
+                                this.confirmLogin(this.props.navigation)
+                                } 
+                            }
                         >
                             <Text style={styles.googleText}>Continue with Google</Text>
                         </TouchableOpacity>

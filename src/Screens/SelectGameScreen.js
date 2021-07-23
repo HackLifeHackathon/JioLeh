@@ -2,7 +2,8 @@ import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
+export default function SelectGameScreen({ route, navigation }) {
+    const { userid } = route.params;
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -10,6 +11,8 @@ export default function SelectGameScreen({ navigation }) {
             </TouchableOpacity>
             <View style={styles.content}>
                 <Text style={styles.header}>Games I Play</Text>
+                <Text style={styles.header}>{JSON.stringify(userid)}</Text>
+
                 <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Valorant</Text>
