@@ -1,10 +1,13 @@
-import React from 'react';
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
+import React, { useState } from 'react';
+import { FontAwesome5 } from '@expo/vector-icons'
 import {
     StyleSheet, View, TextInput, TouchableOpacity, Text,
   } from 'react-native'
 
 export default function CreateAccountScreen({ navigation }) {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     return (
         <View style={styles.container}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -17,22 +20,26 @@ export default function CreateAccountScreen({ navigation }) {
               <TextInput
                 style={styles.input}
                 placeholder=" Enter Email"
+                value={email}
               >
               </TextInput>
               <Text style={styles.name}>Password</Text>
               <TextInput
                 style={styles.input}
                 placeholder=" Enter Password"
+                value={password}
                 >
               </TextInput>
               <Text style={styles.name}>Confirm Password</Text>
               <TextInput
                 style={styles.input}
                 placeholder=" Re-enter Password"
+                value={password}
                 >
               </TextInput>
               </View>
-              <TouchableOpacity style={styles.buttonInverted}>
+              <TouchableOpacity style={styles.buttonInverted}
+              onPress={() => navigation.navigate('SelectGender')}>
                   <Text style={styles.invertedText}>Continue</Text>
               </TouchableOpacity>
               </View>
@@ -40,50 +47,51 @@ export default function CreateAccountScreen({ navigation }) {
     )
 }
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#a8c961',
-    },
-    chevron: {
-        top: 70,
-        paddingLeft: 30,
-    },
-    header: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        top: 120,
-    },
-    title: {
-        fontSize: 35,
-      },
-    input: {
-        height: 45,
-        width: 300,
-        marginTop: 12,
-        marginBottom: 20,
-        backgroundColor: 'white',
-        borderBottomColor: '#424242',
-        borderBottomWidth: 2,
-        fontSize: 18,
-      },
-    form: {
-        marginTop: 30,
-    },
-    name: {
-        fontSize: 20,
-    },
-    buttonInverted: {
-        paddingVertical: 15,
-        paddingHorizontal: 120,
-        borderRadius: 25,
-        backgroundColor: '#a8c961',
-        borderColor: 'black',
-        borderWidth: 2,
-        marginTop: 250,
-    },
-    invertedText: {
-        alignSelf: 'center',
-        color: 'black',
-        fontSize: 16,
-    },
-  });
+container: {
+  flex: 1,
+  backgroundColor: '#a8c961',
+},
+chevron: {
+  top: 70,
+  paddingLeft: 30,
+},
+header: {
+  justifyContent: 'center',
+  alignItems: 'center',
+  top: 120,
+},
+title: {
+  fontSize: 35,
+},
+input: {
+  height: 45,
+  width: 300,
+  marginTop: 12,
+  marginBottom: 20,
+  backgroundColor: 'white',
+  borderBottomColor: '#424242',
+  borderBottomWidth: 2,
+  fontSize: 18,
+  paddingLeft: 15,
+},
+form: {
+  marginTop: 30,
+},
+name: {
+  fontSize: 20,
+},
+buttonInverted: {
+  paddingVertical: 15,
+  paddingHorizontal: 120,
+  borderRadius: 25,
+  backgroundColor: '#a8c961',
+  borderColor: 'black',
+  borderWidth: 2,
+  marginTop: 250,
+},
+invertedText: {
+  alignSelf: 'center',
+  color: 'black',
+  fontSize: 16,
+},
+});
