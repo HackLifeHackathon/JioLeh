@@ -131,7 +131,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: 'black',
-        marginBottom: 20,
+        borderWidth: 2,
+        marginBottom: 15,
     },
     buttonInverted: {
         paddingVertical: 15,
@@ -140,5 +141,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
+        marginBottom: 15,
     },
   });

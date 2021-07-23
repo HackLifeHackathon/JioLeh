@@ -2,22 +2,20 @@ import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
+export default function MyBirthdayScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
                 <FontAwesome5 name="chevron-left" size={25} style={styles.chevron}/>
             </TouchableOpacity>
             <View style={styles.content}>
-                <Text style={styles.header}>My Username</Text>
+                <Text style={styles.header}>My Birthday is...</Text>
                 <TextInput
                 style={styles.input}
-                placeholder=" Enter Username"
+                placeholder=" DD/MM/YY"
                 >
                 </TextInput>
-                <Text style={styles.headerTwo}>This is the name that others will see.
-                Feel free to use a nickname or your first name!</Text>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('SelectGender')}>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('PlayingDays')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
             </View>
@@ -109,11 +107,11 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
-        paddingHorizontal: 40,
+        width: 320,
         borderRadius: 25,
         backgroundColor: '#a8c961',
         borderColor: 'black',
         borderWidth: 2,
-        top: 200,
+        marginTop: 600,
     },
   });
