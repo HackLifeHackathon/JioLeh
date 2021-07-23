@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
+export default function SelectGenderScreen({ navigation }) {
     const [selectMale, setSelectMale] = useState(false)
     const [selectFemale, setSelectFemale] = useState(false)
     
