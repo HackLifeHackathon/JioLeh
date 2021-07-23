@@ -19,7 +19,7 @@ const DismissKeyboardView = DismissKeyboardHOC(View);
 
 const config = {
 	iosClientId:
-  "315261928107-99h2kbgbq48bt7gs3ic0iv2t4jj79pfo.apps.googleusercontent.com",
+      "315261928107-99h2kbgbq48bt7gs3ic0iv2t4jj79pfo.apps.googleusercontent.com",
 	scopes: ["profile", "email"],
 };
 
@@ -60,17 +60,19 @@ export default class CreateAccountScreen extends Component {
   
               if (result.additionalUserInfo.isNewUser) {
                 console.log("new user")
-                firebase
-                    .database()
-                    .ref("users/" + result.user.uid)
-                    .set({
-                    gmail: result.user.email,
-                    profile_picture: result.additionalUserInfo.profile.picture,
-                    username: result.user.displayName,
-                    uid: result.user.uid,
-                    }).catch(function(e) {
-                      console.log("upload data to firebase failed: " + e);
-                  })
+                // should navigate elsewhere?
+
+                // firebase
+                //     .database()
+                //     .ref("users/" + result.user.uid)
+                //     .set({
+                //     gmail: result.user.email,
+                //     profile_picture: result.additionalUserInfo.profile.picture,
+                //     username: result.user.displayName,
+                //     uid: result.user.uid,
+                //     }).catch(function(e) {
+                //       console.log("upload data to firebase failed: " + e);
+                //   })
                   } else {
                   console.log("old user")
                 }

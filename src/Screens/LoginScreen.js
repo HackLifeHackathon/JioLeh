@@ -19,7 +19,7 @@ const config = {
 	scopes: ["profile", "email"],
 };
 
-export default function LoginScreen({ navigation }) {
+export default class LoginScreen extends Component {
     isUserEqual = (googleUser, firebaseUser) => {
 		if (firebaseUser) {
 			var providerData = firebaseUser.providerData;
@@ -53,6 +53,7 @@ export default function LoginScreen({ navigation }) {
 				firebase.auth().signInWithCredential(credential)
 					.then((result) => {
 						console.log("user signed in");
+                        // navigate else where??
 					})
 					.catch(function (error) {
 						console.log(error);
@@ -79,20 +80,24 @@ export default function LoginScreen({ navigation }) {
 			return { error: true };
 		}
 	};
-
-    return (
-        <DismissKeyboardView style={styles.container}>
-            <Text style={styles.header}>JioLeh</Text>
-            <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateAccount')}>
-                <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonInverted}>
-                <Text style={styles.invertedText}>SIGN IN</Text>
-            </TouchableOpacity>
-            </View>
-        </DismissKeyboardView>
-    ) 
+    render() {
+        return (
+            <DismissKeyboardView style={styles.container}>
+                <Text style={styles.header}>JioLeh</Text>
+                <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('CreateAccount')}>
+                    <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonInverted} onPress={() => {
+                            console.log("pressed")
+                            this.signInWithGoogleAsync()
+                        }}>
+                    <Text style={styles.invertedText}>SIGN IN</Text>
+                </TouchableOpacity>
+                </View>
+            </DismissKeyboardView>
+        ) 
+    }
 }
 const styles = StyleSheet.create({
     container: {
