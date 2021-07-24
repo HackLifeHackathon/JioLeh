@@ -13,7 +13,7 @@ export default function HomeScreen({ navigation }) {
             <TouchableOpacity 
             style={styles.chat}
             onPress={() => navigation.navigate('Messages')}>
-                <FontAwesome5 name="comments" size={25} />
+                <FontAwesome5 style={styles.comment} name="comments" size={25} />
             </TouchableOpacity>
             </View>
             <View style={styles.buttonContainer}>
@@ -78,7 +78,8 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     chat: {
-        padding: 12,
+        marginBottom: 20,
+        padding: 10,
         borderRadius: 30,
         backgroundColor: 'white',
     },

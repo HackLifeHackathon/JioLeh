@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
       time: {
         fontFamily: 'RopaSans',
         fontSize: 17,
-        right: -200,
+        right: -150,
         color: '#89878a',
       },
   });
