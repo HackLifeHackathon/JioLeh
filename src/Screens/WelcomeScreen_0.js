@@ -2,6 +2,9 @@ import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+// Sorry but need to fix the screen for this! :(
+
+
 export default function WelcomeScreen_0({ route, navigation }) {
     const { userid } = route.params;
     // console.log(userid)
