@@ -5,7 +5,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'reac
 // Might need keyboard
 
 
-export default function SelectGameScreen({ route, navigation }) {
+export default function UsernameScreen({ route, navigation }) {
     const { userid, games } = route.params;    
     
     const [username, setUsername]= useState('')
@@ -44,7 +44,7 @@ function checkUsernameAndGo(userid, games, username, navigation) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
     },
     chevron: {
         top: 70,
@@ -129,10 +129,12 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
+        width: 320,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
-        borderColor: 'black',
+        backgroundColor: '#ffaa2b',
+        borderColor: '#ffaa2b',
         borderWidth: 2,
+        width: 320,
         top: 200,
         width: 320,
     },

@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       display: 'flex',
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
       
     },
     chevron: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontFamily: 'RopaSans',
-        fontSize: 25,
+        fontSize: 35,
         top: 100,
     },
     headerTwo: {
@@ -87,26 +87,31 @@ const styles = StyleSheet.create({
         fontSize: 20,
         top: 105,
         marginBottom: 10,
+        color: '#4c4157'
     },
     ruleContainer: {
         top: 110,
-        margin: 15,
+        marginHorizontal: 25,
+        marginVertical: 15
     },
     check: {
         padding: 10,
+        color: '#ed9a00'
     },
     ruleHeader: {
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: 10,
+        marginLeft: '2%'
     },
     ruleTitle: {
         fontFamily: 'RopaSans',
-        fontSize: 20,
+        fontSize: 25,
     },
     ruleDetail: {
         fontFamily: 'RopaSans',
         fontSize: 18,
+        color: '#4c4157'
     },
     buttonContainer: {
         flexDirection: 'column',
@@ -134,10 +139,10 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
-        //paddingHorizontal: 40,
+        width: 320,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
-        borderColor: 'black',
+        backgroundColor: '#ffaa2b',
+        borderColor: '#ffaa2b',
         borderWidth: 2,
         top: 200,
         width: 320,

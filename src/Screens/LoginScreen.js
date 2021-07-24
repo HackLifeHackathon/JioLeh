@@ -102,19 +102,27 @@ export default class LoginScreen extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#c7a0cc',
       alignItems: 'center',
-      //justifyContent: 'center',
+      
     },
     header: {
       fontFamily: 'RopaSans',
-      fontSize: 25,
-      top: 150,
+      fontSize: 50,
+      fontWeight: 'bold',
+      marginBottom: '10%',
+      marginTop: '27%',
+      color: 'black'
+    },
+    image: {
+        height: '83%',
+        resizeMode: 'contain',
+        top: 0
     },
     buttonContainer: {
         flexDirection: 'column',
         position: 'absolute',
-        bottom: 100,
+        bottom: '13%',
     },
     invertedText: {
         alignSelf: 'center',
@@ -124,13 +132,12 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         alignSelf: 'center',
-        color: '#a8c961',
+        color: '#feda00',
         fontSize: 16,
         fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,
-        //paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: 'black',
         borderWidth: 2,
@@ -139,12 +146,12 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
-        //paddingHorizontal: 40,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
+        backgroundColor: '#feda00',
         borderColor: 'black',
         borderWidth: 2,
         marginBottom: 15,
         width: 320,
+        
     },
   });

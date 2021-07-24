@@ -180,7 +180,7 @@ export default class CreateAccountScreen extends Component {
 const styles = StyleSheet.create({
 container: {
   flex: 1,
-  backgroundColor: '#a8c961',
+  backgroundColor: '#b6a2db',
 },
 chevron: {
   top: 70,
@@ -206,6 +206,7 @@ input: {
   fontSize: 18,
   paddingLeft: 15,
   fontFamily: 'RopaSans',
+  
 },
 form: {
   marginTop: 30,
@@ -219,10 +220,10 @@ buttonInverted: {
   //paddingHorizontal: 120,
   width: 320,
   borderRadius: 25,
-  backgroundColor: '#a8c961',
-  borderColor: 'black',
+  backgroundColor: '#ffaa2b',
+  borderColor: '#ffaa2b',
   borderWidth: 2,
-  marginTop: 250,
+  marginTop: 150,
 },
 invertedText: {
   alignSelf: 'center',
