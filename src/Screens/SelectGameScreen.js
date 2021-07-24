@@ -135,11 +135,7 @@ const styles = StyleSheet.create({
     },
     button: {
         paddingVertical: 15,
-<<<<<<< HEAD
-        paddingHorizontal: 40,
-=======
         width: 320,
->>>>>>> main
         borderRadius: 25,
         backgroundColor: 'black',
         borderWidth: 2,
