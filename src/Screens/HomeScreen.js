@@ -3,25 +3,29 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
-    const [selectLobby, setSelectLobby] = useState(false)
-    const [selectGamers, setSelectGamers] = useState(false)
     return (
         <View style={styles.container}>
+            <View style={styles.topBar}>
             <TouchableOpacity 
-            style={styles.chevron}
             onPress={() => navigation.openDrawer()}>
                 <FontAwesome5 name="align-justify" size={25} />
             </TouchableOpacity>
+            <TouchableOpacity 
+            style={styles.chat}
+            onPress={() => navigation.navigate('Messages')}>
+                <FontAwesome5 name="comments" size={25} />
+            </TouchableOpacity>
+            </View>
             <View style={styles.buttonContainer}>
             <TouchableOpacity 
-                style={selectLobby ? styles.button : styles.buttonInverted}
-                onPress={() => setSelectLobby(!selectLobby)}>
-                    <Text style={selectLobby ? styles.buttonText : styles.invertedText}>Game Lobbies</Text>
+                style={styles.buttonInverted}
+                onPress={() => navigation.navigate('GameLobby')}>
+                    <Text style={styles.invertedText}>Game Lobbies</Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
-                style={selectGamers ? styles.button : styles.buttonInverted}
-                onPress={() => setSelectGamers(!selectGamers)}>
-                    <Text style={selectGamers ? styles.buttonText : styles.invertedText}>Gamers Connected</Text>
+                style={styles.buttonInverted}
+                onPress={() => navigation.navigate('GamersConnected')}>
+                    <Text style={styles.invertedText}>Gamers Connected</Text>
                 </TouchableOpacity>
                 </View>
         </View>
@@ -37,10 +41,6 @@ const styles = StyleSheet.create({
       fontFamily: 'Monaco',
       fontSize: 25,
       top: 150,
-    },
-    chevron: {
-        top: 70,
-        paddingLeft: 30,
     },
     buttonContainer: {
         flexDirection: 'column',
@@ -76,5 +76,16 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2,
         marginVertical: 10,
+    },
+    chat: {
+        padding: 12,
+        borderRadius: 30,
+        backgroundColor: 'white',
+    },
+    topBar: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        top: 70,
+        paddingHorizontal: 30,
     },
   });

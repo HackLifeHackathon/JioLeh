@@ -14,6 +14,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AppLoading from 'expo-app-loading'
 import LoginScreen from './src/Screens/LoginScreen';
 import * as Font from 'expo-font'
+import GamersConnected from './src/Screens/GamersConnected';
+import MessagingScreen from './src/Screens/gameLobby/MessagingScreen';
 
 export default function App() {
   const [isDoneLoading, setDoneLoading] = useState(false)
@@ -50,6 +52,8 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={SideMenu} />
         <Stack.Screen name="GameLobby" component={GameLobbyScreen} />
         <Stack.Screen name="GameDetail" component={GameDetailScreen} />
+        <Stack.Screen name="GamersConnected" component={GamersConnected} />
+        <Stack.Screen name="Messages" component={MessagingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
