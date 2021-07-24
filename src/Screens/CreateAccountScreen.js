@@ -153,23 +153,23 @@ export default class CreateAccountScreen extends Component {
                     >
                 </TextInput>
                 </View>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => this.props.navigation.navigate('SelectGame')}>
+
+                
+                <TouchableOpacity style={styles.buttonInverted} 
+                onPress={() => {
+                    console.log("pressed")
+                    this.confirmLogin(this.props.navigation)
+                    } 
+                }
+                >
+                    <Text style={styles.invertedText}>Continue with Google</Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity style={styles.continue} onPress={() => this.props.navigation.navigate('SelectGame')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
-                    <View style={styles.googleBlock}>
-                        {/* <Image 
-                            style={styles.img}
-                            source={require("../../assets/google.png")}></Image> */}
-                        <TouchableOpacity 
-                            onPress={() => {
-                                console.log("pressed")
-                                this.confirmLogin(this.props.navigation)
-                                } 
-                            }
-                        >
-                            <Text style={styles.googleText}>Continue with Google</Text>
-                        </TouchableOpacity>
-                    </View>
+                
+                    
                 </View>
             </DismissKeyboardView>
             </SafeAreaView>
@@ -183,13 +183,13 @@ container: {
   backgroundColor: '#b6a2db',
 },
 chevron: {
-  top: 70,
+  top: 50,
   paddingLeft: 30,
 },
 header: {
   justifyContent: 'center',
   alignItems: 'center',
-  top: 120,
+  top: 100,
 },
 title: {
   fontSize: 35,
@@ -223,7 +223,7 @@ buttonInverted: {
   backgroundColor: '#ffaa2b',
   borderColor: '#ffaa2b',
   borderWidth: 2,
-  marginTop: 150,
+  marginTop: 100,
 },
 invertedText: {
   alignSelf: 'center',
@@ -231,4 +231,15 @@ invertedText: {
   fontSize: 16,
   fontFamily: 'RopaSans',
 },
+continue: {
+    paddingVertical: 15,
+  //paddingHorizontal: 120,
+  width: 320,
+  borderRadius: 25,
+  backgroundColor: '#ffaa2b',
+  borderColor: '#ffaa2b',
+  borderWidth: 2,
+  marginTop: 10
+ 
+}
 });

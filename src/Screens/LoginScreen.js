@@ -83,6 +83,8 @@ export default class LoginScreen extends Component {
             <SafeAreaView style={styles.container}>
             <DismissKeyboardView style={styles.container}>
                 <Text style={styles.header}>JioLeh</Text>
+                <Image style={styles.image} source={require('../../assets/brawlstar.png')}>
+                </Image>
                 <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('CreateAccount')}>
                     <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
@@ -115,14 +117,14 @@ const styles = StyleSheet.create({
       color: 'black'
     },
     image: {
-        height: '83%',
+        height: '90%',
         resizeMode: 'contain',
         top: 0
     },
     buttonContainer: {
         flexDirection: 'column',
         position: 'absolute',
-        bottom: '13%',
+        bottom: '8%',
     },
     invertedText: {
         alignSelf: 'center',
