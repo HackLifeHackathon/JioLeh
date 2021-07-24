@@ -56,7 +56,7 @@ export default function PlayingDayScreen({ navigation }) {
                 onPress={() => setSelectSunday(!selectSunday)}>
                     <Text style={selectSunday ? styles.buttonText : styles.invertedText}>Sunday</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonInverted} onPress={() => navigation.navigate('HomeScreen')}>
+                <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('HomeScreen')}>
                     <Text style={styles.invertedText}>Continue</Text>
                 </TouchableOpacity>
                 </View>
@@ -67,7 +67,7 @@ export default function PlayingDayScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
     },
     chevron: {
         top: 70,
@@ -79,13 +79,13 @@ const styles = StyleSheet.create({
     },
     header: {
         fontFamily: 'RopaSans',
-        fontSize: 25,
+        fontSize: 35,
         top: 90,
     },
     buttonContainer: {
         flexDirection: 'column',
         position: 'absolute',
-        bottom: 100,
+        marginTop: '40%'
     },
     invertedText: {
         alignSelf: 'center',
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         alignSelf: 'center',
-        color: '#a8c961',
+        color: '#b6a2db',
         fontSize: 16,
         fontFamily: 'RopaSans',
     },
@@ -110,8 +110,19 @@ const styles = StyleSheet.create({
     buttonInverted: {
         paddingVertical: 15,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
+        backgroundColor: '#b6a2db',
         borderColor: 'black',
+        borderWidth: 2,
+        marginBottom: 15,
+        width: 320,
+    },
+    continueButton: {
+        marginTop: '10%',
+        paddingVertical: 15,
+        width: 320,
+        borderRadius: 25,
+        backgroundColor: '#ffaa2b',
+        borderColor: '#ffaa2b',
         borderWidth: 2,
         marginBottom: 15,
         width: 320,

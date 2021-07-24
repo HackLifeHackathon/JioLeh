@@ -39,7 +39,7 @@ export default function SelectGenderScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
     },
     chevron: {
         top: 70,
@@ -56,23 +56,24 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         alignSelf: 'center',
-        color: '#a8c961',
+        color: '#b6a2db',
         fontSize: 16,
         fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,
-       // paddingHorizontal: 130,
+
         borderRadius: 25,
         backgroundColor: 'black',
         marginVertical: 15,
+        borderWidth: 2,
         width: 320,
     },
     buttonInverted: {
         paddingVertical: 15,
         width: 320,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
+        backgroundColor: '#b6a2db',
         borderColor: 'black',
         borderWidth: 2,
         marginVertical: 15,
@@ -84,12 +85,13 @@ const styles = StyleSheet.create({
         fontFamily: 'RopaSans',
     },
     continue: {
+        marginTop: '10%',
         paddingVertical: 15,
         width: 320,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
-        borderColor: 'black',
+        backgroundColor: '#ffaa2b',
+        borderColor: '#ffaa2b',
         borderWidth: 2,
-        marginTop: 300,
+        marginTop: '70%',
     }
   });

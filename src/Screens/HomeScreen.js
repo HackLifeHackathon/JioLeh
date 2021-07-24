@@ -15,12 +15,17 @@ export default function HomeScreen({ navigation }) {
             <View style={styles.buttonContainer}>
             <TouchableOpacity 
                 style={selectLobby ? styles.button : styles.buttonInverted}
-                onPress={() => setSelectLobby(!selectLobby)}>
+                onPress={() => { 
+                    setSelectLobby(!selectLobby)
+                    navigation.navigate('GameLobby')}}>
                     <Text style={selectLobby ? styles.buttonText : styles.invertedText}>Game Lobbies</Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
                 style={selectGamers ? styles.button : styles.buttonInverted}
-                onPress={() => setSelectGamers(!selectGamers)}>
+                onPress={() => { 
+                    setSelectGamers(!selectGamers)
+                    navigation.navigate('GamersConnected')
+                    }}>
                     <Text style={selectGamers ? styles.buttonText : styles.invertedText}>Gamers Connected</Text>
                 </TouchableOpacity>
                 </View>
@@ -30,7 +35,7 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
       //justifyContent: 'center',
     },
     header: {
@@ -56,7 +61,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         alignSelf: 'center',
-        color: '#a8c961',
+        color: '#b6a2db',
         fontSize: 16,
         fontFamily: 'RopaSans',
     },
@@ -65,14 +70,14 @@ const styles = StyleSheet.create({
         width: 320,
         borderRadius: 25,
         backgroundColor: 'black',
-        marginBottom: 20,
         marginVertical: 10,
+        borderWidth: 2,
     },
     buttonInverted: {
         paddingVertical: 15,
         width: 320,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
+        backgroundColor: '#b6a2db',
         borderColor: 'black',
         borderWidth: 2,
         marginVertical: 10,

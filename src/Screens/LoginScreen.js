@@ -1,16 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <Text style={styles.header}>JioLeh</Text>
+            <Image style={styles.image} source={require('../../assets/brawlstar.png')}>
+            </Image>
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateAccount')}>
-                <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
+                <Text style={styles.buttonText}>Create Account</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonInverted}>
-                <Text style={styles.invertedText}>SIGN IN</Text>
+                <Text style={styles.invertedText}>Sign In</Text>
             </TouchableOpacity>
             </View>
         </View>
@@ -19,19 +21,27 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#c7a0cc',
       alignItems: 'center',
-      //justifyContent: 'center',
+      
     },
     header: {
       fontFamily: 'RopaSans',
-      fontSize: 25,
-      top: 150,
+      fontSize: 50,
+      fontWeight: 'bold',
+      marginBottom: '10%',
+      marginTop: '27%',
+      color: 'black'
+    },
+    image: {
+        height: '83%',
+        resizeMode: 'contain',
+        top: 0
     },
     buttonContainer: {
         flexDirection: 'column',
         position: 'absolute',
-        bottom: 100,
+        bottom: '13%',
     },
     invertedText: {
         alignSelf: 'center',
@@ -41,13 +51,12 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         alignSelf: 'center',
-        color: '#a8c961',
+        color: '#feda00',
         fontSize: 16,
         fontFamily: 'RopaSans',
     },
     button: {
         paddingVertical: 15,
-        //paddingHorizontal: 40,
         borderRadius: 25,
         backgroundColor: 'black',
         borderWidth: 2,
@@ -56,12 +65,12 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
-        //paddingHorizontal: 40,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
+        backgroundColor: '#feda00',
         borderColor: 'black',
         borderWidth: 2,
         marginBottom: 15,
         width: 320,
+        
     },
   });

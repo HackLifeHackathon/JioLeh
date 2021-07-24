@@ -81,7 +81,7 @@ export const GameToken = ({ name }) => (
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
       //justifyContent: 'center',
     },
     chevron: {
@@ -139,9 +139,9 @@ const styles = StyleSheet.create({
         marginTop: 100,
       },
       buttonSelect: {
+        
           flexDirection: 'row',
           padding: 18,
-          //borderWidth: 2,
           borderRadius: 15,
           backgroundColor: 'white',
           shadowColor: '#000',

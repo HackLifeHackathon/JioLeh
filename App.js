@@ -8,6 +8,7 @@ import MyBirthdayScreen from './src/Screens/MyBirthdayScreen';
 import PlayingDaysScreen from './src/Screens/PlayingDaysScreen';
 import GameLobbyScreen from './src/Screens/gameLobby/GameLobbyScreen';
 import GameDetailScreen from './src/Screens/gameLobby/GameDetailScreen';
+import GamersConnectedScreen from './src/Screens/GamersConnected';
 import SideMenu from './src/components/SideMenu'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -50,6 +51,7 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={SideMenu} />
         <Stack.Screen name="GameLobby" component={GameLobbyScreen} />
         <Stack.Screen name="GameDetail" component={GameDetailScreen} />
+        <Stack.Screen name="GamersConnected" component={GamersConnectedScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
