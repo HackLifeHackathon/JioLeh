@@ -39,7 +39,7 @@ const ChatGroup = ({name, chat, time, image}) => (
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#feda00',
       //justifyContent: 'center',
     },
     title: {
@@ -58,23 +58,6 @@ const styles = StyleSheet.create({
         color: '#a8c961',
         fontSize: 16,
         fontFamily: 'RopaSans',
-    },
-    button: {
-        paddingVertical: 15,
-        width: 320,
-        borderRadius: 25,
-        backgroundColor: 'black',
-        marginBottom: 20,
-        marginVertical: 10,
-    },
-    buttonInverted: {
-        paddingVertical: 15,
-        width: 320,
-        borderRadius: 25,
-        backgroundColor: '#a8c961',
-        borderColor: 'black',
-        borderWidth: 2,
-        marginVertical: 10,
     },
     chat: {
         padding: 12,

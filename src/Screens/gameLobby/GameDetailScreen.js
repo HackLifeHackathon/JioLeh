@@ -54,7 +54,7 @@ export default function GameDetailScreen({ navigation, route }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
     },
     chevron: {
         top: 70,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontFamily: 'RopaSans',
-        fontSize: 25,
+        fontSize: 35,
         marginTop: 80,
         marginBottom: 20
     },
@@ -82,20 +82,21 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         backgroundColor: 'white',
-        borderRadius: 10,
+        borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
         
     },
     hostText: {
         fontSize: 25,
+        fontFamily: 'RopaSans'
     },
     hostCircle: {
         position: 'absolute',
         right: -10,
         top: -15,
         backgroundColor: 'white',
-        borderColor: 'red',
+        borderColor: '#ffaa2b',
         borderRadius: 50,
         borderWidth: 5,
         borderStyle: 'solid',
@@ -106,6 +107,8 @@ const styles = StyleSheet.create({
     },
     circleText: {
         margin: 4,
+        fontFamily: 'RopaSans',
+        fontSize: 18
     },
     buttonContainer: {
         flexDirection: 'column',

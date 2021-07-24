@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
           alignSelf: 'center',
         },
         profile: {
-          marginTop: 100,
+          marginTop: '22%',
+          borderRadius: 10,
         },
         information: {
           paddingLeft: 15,

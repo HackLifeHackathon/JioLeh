@@ -2,7 +2,7 @@ import React from 'react';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function SelectGameScreen({ navigation }) {
+export default function UsernameScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={{zIndex: 2}} onPress={() => navigation.goBack()}>
@@ -27,7 +27,7 @@ export default function SelectGameScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
     },
     chevron: {
         top: 70,
@@ -112,10 +112,12 @@ const styles = StyleSheet.create({
     },
     buttonInverted: {
         paddingVertical: 15,
+        width: 320,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
-        borderColor: 'black',
+        backgroundColor: '#ffaa2b',
+        borderColor: '#ffaa2b',
         borderWidth: 2,
+        width: 320,
         top: 200,
         width: 320,
     },

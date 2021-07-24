@@ -25,7 +25,7 @@ export default function MyBirthdayScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#a8c961',
+      backgroundColor: '#b6a2db',
     },
     chevron: {
         top: 70,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontFamily: 'RopaSans',
-        fontSize: 25,
+        fontSize: 35,
         top: 100,
     },
     headerTwo: {
@@ -111,9 +111,9 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         width: 320,
         borderRadius: 25,
-        backgroundColor: '#a8c961',
-        borderColor: 'black',
+        backgroundColor: '#ffaa2b',
+        borderColor: '#ffaa2b',
         borderWidth: 2,
-        marginTop: 600,
+        marginTop: '150%',
     },
   });

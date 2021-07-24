@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    color: '#a8c961',
+    color: '#b6a2db',
     fontWeight: 'bold',
     fontFamily: 'RopaSans',
   },
@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
   },
   buttonInverted: {
     paddingVertical: 15,
-    width: 320,
+    width: "100%",
     borderRadius: 25,
-    backgroundColor: '#a8c961',
-    borderColor: 'black',
+    backgroundColor: '#b6a2db',
+    borderColor: '#b6a2db',
     borderWidth: 2,
     marginVertical: 10,
 },
