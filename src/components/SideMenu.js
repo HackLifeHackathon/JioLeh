@@ -6,6 +6,8 @@ import GamersConnected from '../Screens/GamersConnected'
 const Drawer = createDrawerNavigator();
 
 export default function SideMenu({route}) {
+    const { userid } = route.params;
+    console.log("home screen: " + userid)
     return (
           <Drawer.Navigator
           initialRouteName="Home"

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TouchableWithoutFeedback, Keyboard, SafeAreaView } from "react-native";
+import { TouchableWithoutFeedback, Keyboard, SafeAreaView, Alert } from "react-native";
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from "react-native";
 import firebase from "firebase";
 import * as Google from 'expo-google-app-auth';
@@ -27,7 +27,7 @@ export default class LoginScreen extends Component {
 				if (providerData[i].providerId === 
 					firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
 					providerData[i].uid === 
-					googleUser.uid
+					googleUser.user.id
 				) {
 					// We don't need to reauth the Firebase connection.
 					return true;
@@ -50,16 +50,11 @@ export default class LoginScreen extends Component {
 					googleUser.accessToken, 
 				);
 				// Sign in with credential from the Google user.
-				firebase.auth().signInWithCredential(credential)
-					.then((result) => {
-						console.log("user signed in");
-                        // navigate else where??
-					})
-					.catch(function (error) {
-						console.log(error);
-					});
+				Alert.alert('Account Not Registered', 'Please Create an Account', {text: 'Ok'})    // wont really come here
+                this.props.navigation.navigate('CreateAccount')
 			} else {
-				console.log("User already signed-in Firebase.");
+                this.props.navigation.navigate('HomeScreen', { userid: googleUser.user.id });
+				console.log("User already registered in Firebase.");
 			}
 		})
 		.bind(this);
@@ -80,6 +75,9 @@ export default class LoginScreen extends Component {
 			return { error: true };
 		}
 	};
+
+
+
     render() {
         return (
             <SafeAreaView style={styles.container}>
@@ -91,7 +89,7 @@ export default class LoginScreen extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonInverted} onPress={() => {
                             console.log("pressed")
-                            this.signInWithGoogleAsync()
+                            this.signInWithGoogleAsync(this.props.navigation)
                         }}>
                     <Text style={styles.invertedText}>SIGN IN</Text>
                 </TouchableOpacity>

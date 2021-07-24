@@ -58,7 +58,7 @@ function updateFirestoreAndGo(userid, games, username, gender, userAge, playDays
         playDays: playDays
     }).catch((error) => console.log(error));
 
-    navigation.navigate("HomeScreen");
+    navigation.navigate("HomeScreen", { userid: userid} );
 }
 
 

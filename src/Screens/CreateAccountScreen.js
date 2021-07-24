@@ -23,9 +23,9 @@ const config = {
 	scopes: ["profile", "email"],
 };
 
-var isRegistered = false;
 
 export default class CreateAccountScreen extends Component {
+    // global.isRegistered = false;
 
     isUserEqual = (googleUser, firebaseUser) => {
         if (firebaseUser) {
@@ -82,7 +82,8 @@ export default class CreateAccountScreen extends Component {
               console.log(error);
             });
         } else {
-            isRegistered = true;
+            // if user already registered, go to homescreen straight
+            this.props.navigation.navigate('HomeScreen', { userid: googleUser.user.id });
             console.log("User already registered  -Firebase.");
         }
       })
@@ -107,18 +108,14 @@ export default class CreateAccountScreen extends Component {
 
    confirmLogin = async(navigation) => {
       const result = await this.signInWithGoogleAsync()
-      console.log(result.user.id)
+      console.log(isRegistered)
        if (result.type == "success") {
            // if registered before, directly skip registration
-           if (isRegistered) {
-               this.props.navigation.navigate('HomeScreen');   // might need userid to identify the person
-           } else {
-               this.props.navigation.navigate('Welcome_0', { userid: result.user.id });
-           }
-      } else {
-        Alert.alert('Account Registered', 'Please Log In', {text: 'Ok'})    // wont really come here
-        this.props.navigation.navigate('FirstScreen')
-      }
+            this.props.navigation.navigate('Welcome_0', { userid: result.user.id });
+        } else {
+            Alert.alert('Account Registered', 'Please Log In', {text: 'Ok'})    // wont really come here
+            this.props.navigation.navigate('FirstScreen')
+        }
    };
 
     render () {

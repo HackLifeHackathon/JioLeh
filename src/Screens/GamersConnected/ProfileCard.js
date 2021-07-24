@@ -3,7 +3,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 
 export default function ProfileCard({ data }) {
-    const {name, birthday, image, games, dates } = data
+    const {name, userAge, image, games, dates } = data
     return (
         <View style={styles.profile}>
         <View style={styles.imageCard}>
@@ -14,7 +14,7 @@ export default function ProfileCard({ data }) {
             <Text style={styles.name}>{name}</Text>
             <FontAwesome5 name="grin-wink" size={25} color='#eb8f34'/>
             </View>
-            <Text style={styles.line}>{`Birthday: ${birthday}`}</Text>
+            <Text style={styles.line}>{`Age: ${userAge}`}</Text>
             <View style={{ flexDirection: 'row'}}>
             <FontAwesome5 name="calendar-alt" size={25} color='#eb8f34'/>
             <Text style={{ marginTop: 5, marginLeft: 10 }}>{dates}</Text>
